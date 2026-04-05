@@ -1,7 +1,26 @@
 ---
-// Placeholder — will be replaced in Unit 5
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Hero from '@components/home/Hero.astro';
+import CategoryGrid from '@components/home/CategoryGrid.astro';
+import FeaturedListings from '@components/home/FeaturedListings.astro';
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Los Gigantes Guide',
+  url: 'https://losgigantesguide.com',
+  description:
+    'Local tips, honest reviews, and hidden spots for Los Gigantes, Tenerife. Things to do, restaurants, services, accommodation, and dance lessons.',
+  inLanguage: 'en',
+};
 ---
-<html lang="en">
-  <head><meta charset="UTF-8" /><title>Los Gigantes Guide</title></head>
-  <body><h1>Los Gigantes Guide</h1></body>
-</html>
+
+<BaseLayout
+  title="Los Gigantes Guide"
+  description="Your local guide to Los Gigantes, Tenerife. Honest recommendations for things to do, restaurants, services, accommodation, and dance lessons."
+  jsonLd={websiteJsonLd}
+>
+  <Hero />
+  <CategoryGrid />
+  <FeaturedListings />
+</BaseLayout>

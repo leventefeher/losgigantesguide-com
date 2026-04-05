@@ -1,0 +1,32 @@
+---
+interface Props {
+  variant?: 'light' | 'dark';
+  class?: string;
+}
+
+const { variant = 'light', class: extraClass = '' } = Astro.props;
+
+// light variant: cliff-deep line1 + coral line2 (on sea-salt background)
+// dark variant: sea-salt line1 + sky-water line2 (on cliff-deep/volcanic background)
+const line1Class = variant === 'dark' ? 'text-sea-salt' : 'text-cliff-deep';
+const line2Class = variant === 'dark' ? 'text-sky-water' : 'text-sunset-coral';
+---
+
+<div class:list={['logo-mark', extraClass]} aria-label="Los Gigantes Guide — home">
+  <span
+    class:list={[
+      line1Class,
+      'block font-serif text-2xl font-semibold leading-tight',
+    ]}
+  >
+    Los Gigantes
+  </span>
+  <span
+    class:list={[
+      line2Class,
+      'block font-sans text-xs font-semibold tracking-widest uppercase mt-0.5',
+    ]}
+  >
+    Guide
+  </span>
+</div>

@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PlaceCard from '@components/PlaceCard.astro';
+
+const allEntries = await getCollection('activities');
+
+// Partition: open/seasonal first, closed last
+const active = allEntries.filter((e) => e.data.status !== 'closed');
+const closed = allEntries.filter((e) => e.data.status === 'closed');
+const entries = [...active, ...closed];
+
+// Unique tags across all entries
+const allTags = [...new Set(entries.flatMap((e) => e.data.tags))].sort();
+---
+
+<BaseLayout
+  title="Things to Do in Los Gigantes"
+  description="The best activities in Los Gigantes, Tenerife — whale watching, sea kayaking, coastal walks and more. Honest local recommendations."
+>
+  <div class="max-w-6xl mx-auto px-4 py-12">
+    <h1 class="font-serif font-bold text-cliff-deep mb-3" style="font-size: clamp(1.8rem, 4vw, 2.5rem);">
+      Things to Do in Los Gigantes
+    </h1>
+    <p class="text-atlantic text-lg mb-8 max-w-2xl">
+      Activities worth doing in and around Los Gigantes, Tenerife — from the iconic cliffs to quiet walks with no one else around.
+    </p>
+
+    {allTags.length > 0 && (
+      <nav aria-label="Filter by tag" class="mb-8">
+        <ul class="flex flex-wrap gap-2 list-none p-0 m-0" role="list">
+          {allTags.map((tag) => (
+            <li>
+              <a
+                href={`/tags/${tag}/`}
+                class="text-sm text-atlantic no-underline bg-sea-salt border border-border px-3 py-1 rounded-full hover:bg-sea-salt-dark transition-colors"
+              >
+                {tag}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )}
+
+    <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 list-none p-0 m-0" role="list">
+      {entries.map((entry) => (
+        <li>
+          <PlaceCard entry={entry} categorySlug="activities" headingLevel={2} />
+        </li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>

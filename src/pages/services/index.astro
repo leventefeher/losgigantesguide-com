@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PlaceCard from '@components/PlaceCard.astro';
+
+const allEntries = await getCollection('services');
+
+const active = allEntries.filter((e) => e.data.status !== 'closed');
+const closed = allEntries.filter((e) => e.data.status === 'closed');
+const entries = [...active, ...closed];
+
+const allTags = [...new Set(entries.flatMap((e) => e.data.tags))].sort();
+---
+
+<BaseLayout
+  title="Local Services in Los Gigantes"
+  description="Reliable local services in Los Gigantes, Tenerife. Tradespeople, photographers, and other professionals recommended from personal experience."
+>
+  <div class="max-w-6xl mx-auto px-4 py-12">
+    <h1 class="font-serif font-bold text-cliff-deep mb-3" style="font-size: clamp(1.8rem, 4vw, 2.5rem);">
+      Local Services in Los Gigantes
+    </h1>
+    <p class="text-atlantic text-lg mb-8 max-w-2xl">
+      Tradespeople and service providers I've used personally or can vouch for. No ads, no commissions.
+    </p>
+
+    {allTags.length > 0 && (
+      <nav aria-label="Filter by tag" class="mb-8">
+        <ul class="flex flex-wrap gap-2 list-none p-0 m-0" role="list">
+          {allTags.map((tag) => (
+            <li>
+              <a
+                href={`/tags/${tag}/`}
+                class="text-sm text-atlantic no-underline bg-sea-salt border border-border px-3 py-1 rounded-full hover:bg-sea-salt-dark transition-colors"
+              >
+                {tag}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )}
+
+    <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 list-none p-0 m-0" role="list">
+      {entries.map((entry) => (
+        <li>
+          <PlaceCard entry={entry} categorySlug="services" headingLevel={2} />
+        </li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>

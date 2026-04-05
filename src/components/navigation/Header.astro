@@ -1,0 +1,109 @@
+---
+import Logo from '@components/ui/Logo.astro';
+
+const navItems = [
+  { label: 'Things to do', href: '/activities/' },
+  { label: 'Restaurants', href: '/restaurants/' },
+  { label: 'Services', href: '/services/' },
+  { label: 'Stay', href: '/accommodation/' },
+] as const;
+
+const pathname = Astro.url.pathname;
+
+function isActive(href: string) {
+  return pathname === href || pathname.startsWith(href);
+}
+---
+
+<header class="bg-volcanic shadow-sm">
+  <nav
+    aria-label="Main navigation"
+    class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16"
+  >
+    <!-- Logo -->
+    <a href="/" aria-label="Los Gigantes Guide — home" class="no-underline flex-shrink-0">
+      <Logo variant="dark" />
+    </a>
+
+    <!-- Nav items -->
+    <ul class="hidden md:flex items-center gap-6 list-none m-0 p-0" role="list">
+      {navItems.map(({ label, href }) => (
+        <li>
+          <a
+            href={href}
+            class:list={[
+              'text-sm font-medium no-underline transition-colors',
+              isActive(href)
+                ? 'text-sea-salt underline underline-offset-4'
+                : 'text-sky-water hover:text-sea-salt',
+            ]}
+            aria-current={isActive(href) ? 'page' : undefined}
+          >
+            {label}
+          </a>
+        </li>
+      ))}
+      <!-- Dance lessons CTA — coral button -->
+      <li>
+        <a
+          href="/dance-lessons/"
+          class:list={[
+            'inline-block px-4 py-1.5 bg-sunset-coral text-sea-salt text-sm font-semibold rounded-md no-underline transition-opacity hover:opacity-90',
+            isActive('/dance-lessons/') ? 'ring-2 ring-sea-salt ring-offset-1' : '',
+          ]}
+          aria-current={isActive('/dance-lessons/') ? 'page' : undefined}
+        >
+          Dance lessons
+        </a>
+      </li>
+    </ul>
+
+    <!-- Mobile nav — simple wrapping fallback, no JS -->
+    <details class="md:hidden relative">
+      <summary
+        class="list-none cursor-pointer text-sky-water hover:text-sea-salt p-2"
+        aria-label="Open navigation menu"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </summary>
+      <ul
+        class="absolute right-0 top-full mt-1 bg-volcanic border border-border rounded-lg shadow-lg p-4 flex flex-col gap-3 min-w-[200px] list-none z-50"
+        role="list"
+      >
+        {navItems.map(({ label, href }) => (
+          <li>
+            <a
+              href={href}
+              class="block text-sky-water hover:text-sea-salt font-medium no-underline py-1"
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+        <li>
+          <a
+            href="/dance-lessons/"
+            class="block text-center bg-sunset-coral text-sea-salt font-semibold px-4 py-2 rounded-md no-underline hover:opacity-90"
+          >
+            Dance lessons
+          </a>
+        </li>
+      </ul>
+    </details>
+  </nav>
+</header>

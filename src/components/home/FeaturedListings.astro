@@ -1,0 +1,66 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+// PlaceCard is defined in Unit 6 — import lazily to avoid circular dependency at build time
+// (FeaturedListings is rendered after PlaceCard exists)
+import PlaceCard from '@components/PlaceCard.astro';
+
+type AnyEntry =
+  | CollectionEntry<'activities'>
+  | CollectionEntry<'restaurants'>
+  | CollectionEntry<'services'>
+  | CollectionEntry<'dance-lessons'>
+  | CollectionEntry<'accommodation'>;
+
+const categorySlugMap: Record<string, string> = {
+  activities: 'activities',
+  restaurants: 'restaurants',
+  services: 'services',
+  'dance-lessons': 'dance-lessons',
+  accommodation: 'accommodation',
+};
+
+const [activities, restaurants, services, danceLessons, accommodation] =
+  await Promise.all([
+    getCollection('activities'),
+    getCollection('restaurants'),
+    getCollection('services'),
+    getCollection('dance-lessons'),
+    getCollection('accommodation'),
+  ]);
+
+const allEntries: AnyEntry[] = [
+  ...activities,
+  ...restaurants,
+  ...services,
+  ...danceLessons,
+  ...accommodation,
+];
+
+const featured = allEntries
+  .filter((e) => e.data.featured)
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
+  .slice(0, 6);
+---
+
+{featured.length > 0 && (
+  <section class="py-16 px-4 bg-sea-salt-dark">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="font-serif text-cliff-deep font-bold text-center mb-10" style="font-size: clamp(1.5rem, 3vw, 2rem);">
+        Highlights
+      </h2>
+      <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 list-none p-0 m-0" role="list">
+        {featured.map((entry) => (
+          <li>
+            <PlaceCard
+              entry={entry}
+              categorySlug={categorySlugMap[entry.collection]}
+              headingLevel={3}
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}

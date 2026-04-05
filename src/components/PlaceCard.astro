@@ -1,0 +1,93 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import Badge from '@components/ui/Badge.astro';
+
+type Entry =
+  | CollectionEntry<'activities'>
+  | CollectionEntry<'restaurants'>
+  | CollectionEntry<'services'>
+  | CollectionEntry<'dance-lessons'>
+  | CollectionEntry<'accommodation'>;
+
+interface Props {
+  entry: Entry;
+  categorySlug: string;
+  headingLevel?: 2 | 3 | 4;
+}
+
+const { entry, categorySlug, headingLevel = 2 } = Astro.props;
+const { title, description, status, seasonNote, coverImage, coverImageAlt, priceRange, tags } =
+  entry.data;
+
+const detailHref = `/${categorySlug}/${entry.id}/`;
+const Heading = `h${headingLevel}` as 'h2' | 'h3' | 'h4';
+---
+
+<article
+  class:list={[
+    'bg-white border border-border rounded-xl overflow-hidden flex flex-col',
+    status === 'closed' ? 'opacity-60' : '',
+  ]}
+>
+  <!-- Cover image -->
+  {coverImage ? (
+    <a href={detailHref} tabindex="-1" aria-hidden="true" class="block overflow-hidden">
+      <Image
+        src={coverImage}
+        alt={coverImageAlt ?? ''}
+        width={400}
+        height={260}
+        loading="lazy"
+        decoding="async"
+        formats={['avif', 'webp']}
+        class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+      />
+    </a>
+  ) : (
+    <div class="w-full h-48 bg-sea-salt-dark flex items-center justify-center text-4xl" aria-hidden="true">
+      🌊
+    </div>
+  )}
+
+  <!-- Content -->
+  <div class="p-5 flex flex-col gap-3 flex-1">
+    <!-- Status + price row -->
+    <div class="flex items-center gap-2 flex-wrap">
+      {status !== 'open' && (
+        <Badge status={status} seasonNote={seasonNote} />
+      )}
+      {priceRange && (
+        <span class="text-xs text-atlantic font-medium bg-sea-salt px-2 py-0.5 rounded-full border border-border">
+          {priceRange}
+        </span>
+      )}
+    </div>
+
+    <!-- Title -->
+    <Heading class="font-serif font-bold text-cliff-deep text-xl leading-snug">
+      <a href={detailHref} class="no-underline hover:underline underline-offset-2">
+        {title}
+      </a>
+    </Heading>
+
+    <!-- Description -->
+    <p class="text-sm text-atlantic leading-relaxed flex-1">{description}</p>
+
+    <!-- Tags -->
+    {tags.length > 0 && (
+      <ul class="flex flex-wrap gap-1.5 list-none p-0 m-0" role="list" aria-label="Tags">
+        {tags.map((tag) => (
+          <li>
+            <a
+              href={`/tags/${tag}/`}
+              class="text-xs text-atlantic no-underline bg-sea-salt border border-border px-2 py-0.5 rounded-full hover:bg-sea-salt-dark transition-colors"
+            >
+              {tag}
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</article>
