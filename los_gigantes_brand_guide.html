@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los Gigantes Guide — Brand Style Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cliff-deep: #1A6B8A;
+    --atlantic: #2E8FAA;
+    --sky-water: #7DD4E8;
+    --sunset-coral: #C85A2A;
+    --volcanic: #2A5C70;
+    --sea-salt: #FDF8F0;
+    --sea-salt-dark: #F5EDD8;
+    --white: #FFFFFF;
+    --border: rgba(30,107,138,0.15);
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--sea-salt);
+    color: var(--atlantic);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--cliff-deep);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  header .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sky-water);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+  header h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.8rem;
+    color: var(--sea-salt);
+    font-weight: 500;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
+  header p {
+    color: var(--sky-water);
+    font-size: 14px;
+  }
+
+  /* LAYOUT */
+  .container { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+  .section { margin-bottom: 3.5rem; }
+  .section-title {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--atlantic);
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  /* COLOUR PALETTE */
+  .palette-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
+  .swatch { border-radius: 10px; overflow: hidden; border: 0.5px solid var(--border); }
+  .swatch-color { height: 90px; }
+  .swatch-info { padding: 10px 12px; background: var(--white); }
+  .swatch-name { font-size: 13px; font-weight: 600; color: var(--cliff-deep); }
+  .swatch-hex { font-size: 11px; font-family: 'Courier New', monospace; color: var(--atlantic); margin-top: 2px; }
+  .swatch-role { font-size: 11px; color: #7A9AA8; margin-top: 4px; line-height: 1.4; }
+
+  /* TYPOGRAPHY */
+  .type-card { background: var(--white); border: 0.5px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 12px; }
+  .type-label { font-size: 11px; color: #7A9AA8; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.75rem; font-weight: 500; }
+  .type-sample-serif { font-family: 'Playfair Display', Georgia, serif; font-size: 2rem; color: var(--cliff-deep); font-weight: 500; line-height: 1.2; }
+  .type-sample-sans { font-size: 1rem; color: var(--atlantic); line-height: 1.7; }
+  .type-meta { font-size: 11px; font-family: 'Courier New', monospace; color: #7A9AA8; margin-top: 10px; padding-top: 10px; border-top: 0.5px solid var(--border); }
+  .type-scale { display: flex; flex-direction: column; gap: 8px; }
+  .type-scale-row { display: flex; align-items: baseline; gap: 1rem; }
+  .type-scale-label { font-size: 11px; color: #7A9AA8; min-width: 80px; font-family: 'Courier New', monospace; }
+
+  /* BUTTONS */
+  .button-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .btn { display: inline-block; padding: 10px 22px; border-radius: 6px; font-size: 14px; font-weight: 500; font-family: 'Inter', sans-serif; text-decoration: none; cursor: pointer; border: none; }
+  .btn-primary { background: var(--sunset-coral); color: var(--sea-salt); }
+  .btn-secondary { background: transparent; color: var(--cliff-deep); border: 1.5px solid var(--cliff-deep); }
+  .btn-ghost { background: transparent; color: var(--atlantic); border: 1.5px solid var(--border); }
+  .btn-dark { background: var(--cliff-deep); color: var(--sea-salt); }
+
+  /* VOICE */
+  .voice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .voice-card { background: var(--white); border: 0.5px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem; }
+  .voice-title { font-size: 12px; font-weight: 600; color: var(--cliff-deep); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .voice-body { font-size: 13px; color: var(--atlantic); line-height: 1.6; }
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+  .do { background: #EAF5F0; border: 0.5px solid #9ECFBE; border-radius: 10px; padding: 1rem 1.25rem; }
+  .dont { background: #FBF0ED; border: 0.5px solid #F0B8A8; border-radius: 10px; padding: 1rem 1.25rem; }
+  .do-label { font-size: 11px; font-weight: 600; color: #0F6E56; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .dont-label { font-size: 11px; font-weight: 600; color: #993C1D; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .do ul, .dont ul { padding-left: 1rem; font-size: 13px; line-height: 1.8; }
+  .do li { color: #0F6E56; }
+  .dont li { color: #993C1D; }
+
+  /* LOGO CONCEPT */
+  .logo-row { display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start; }
+  .logo-card { background: var(--white); border: 0.5px solid var(--border); border-radius: 10px; padding: 2rem; text-align: center; flex: 1; min-width: 180px; }
+  .logo-card.dark { background: var(--cliff-deep); }
+  .logo-mark { font-family: 'Playfair Display', Georgia, serif; font-size: 1.6rem; font-weight: 500; line-height: 1.1; }
+  .logo-mark .line1 { color: var(--cliff-deep); display: block; }
+  .logo-mark .line2 { color: var(--sunset-coral); display: block; font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; font-family: 'Inter', sans-serif; font-weight: 600; margin-top: 4px; }
+  .logo-card.dark .logo-mark .line1 { color: var(--sea-salt); }
+  .logo-card.dark .logo-mark .line2 { color: var(--sky-water); }
+  .logo-bg-label { font-size: 11px; color: #7A9AA8; margin-top: 0.75rem; }
+  .logo-card.dark .logo-bg-label { color: var(--sky-water); opacity: 0.6; }
+
+  /* PREVIEW */
+  .preview-wrap { border-radius: 12px; overflow: hidden; border: 0.5px solid var(--border); }
+  .preview-nav-bar { background: var(--volcanic); padding: 0.6rem 1.5rem; display: flex; gap: 1.5rem; align-items: center; }
+  .preview-nav-bar .logo-text { font-family: 'Playfair Display', serif; color: var(--sea-salt); font-size: 14px; margin-right: auto; }
+  .preview-nav-bar a { font-size: 12px; color: var(--sky-water); text-decoration: none; }
+  .preview-nav-bar a.cta { background: var(--sunset-coral); color: var(--sea-salt); padding: 4px 12px; border-radius: 4px; font-weight: 500; }
+  .preview-hero { background: var(--cliff-deep); padding: 2.5rem 2rem; }
+  .preview-hero h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--sea-salt); font-weight: 500; line-height: 1.2; margin-bottom: 0.5rem; }
+  .preview-hero p { color: var(--sky-water); font-size: 14px; margin-bottom: 1.25rem; }
+  .preview-hero .btn { font-size: 13px; padding: 9px 20px; }
+  .preview-body { background: var(--sea-salt); padding: 1.5rem 2rem; }
+  .preview-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .preview-card { background: var(--white); border-radius: 8px; padding: 1rem; border: 0.5px solid var(--border); }
+  .preview-card-tag { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--sunset-coral); font-weight: 600; margin-bottom: 6px; }
+  .preview-card h4 { font-size: 13px; font-weight: 600; color: var(--cliff-deep); line-height: 1.3; margin-bottom: 4px; }
+  .preview-card p { font-size: 12px; color: var(--atlantic); line-height: 1.5; }
+
+  /* SPACING & ICONS */
+  .spacing-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-end; }
+  .spacing-item { text-align: center; }
+  .spacing-box { background: var(--sky-water); border-radius: 4px; margin: 0 auto 6px; }
+  .spacing-label { font-size: 11px; font-family: 'Courier New', monospace; color: var(--atlantic); }
+
+  /* FOOTER */
+  footer { background: #1A6B8A; color: #7DD4E8; text-align: center; padding: 2rem; font-size: 12px; margin-top: 2rem; }
+  footer strong { color: var(--sea-salt); }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 2rem; }
+    .voice-grid, .do-dont, .preview-cards { grid-template-columns: 1fr; }
+    .preview-nav-bar a:not(.cta):not(:first-child) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">Brand Style Guide</p>
+  <h1>Los Gigantes Guide</h1>
+  <p>Colours · Typography · Voice · Components · Preview</p>
+</header>
+
+<div class="container">
+
+  <!-- COLOUR PALETTE -->
+  <div class="section">
+    <p class="section-title">Colour palette</p>
+    <div class="palette-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1A6B8A;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Ocean deep</p>
+          <p class="swatch-hex">#1A6B8A</p>
+          <p class="swatch-role">Primary · headers · hero backgrounds</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#2E8FAA;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Atlantic turquoise</p>
+          <p class="swatch-hex">#2E8FAA</p>
+          <p class="swatch-role">Body text · navigation · secondary UI</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#7DD4E8;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Shallow water</p>
+          <p class="swatch-hex">#7DD4E8</p>
+          <p class="swatch-role">Accents · links · light highlights</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#C85A2A;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Sunset coral</p>
+          <p class="swatch-hex">#C85A2A</p>
+          <p class="swatch-role">CTA buttons · dance lessons · energy</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#E8A830;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Golden hour</p>
+          <p class="swatch-hex">#E8A830</p>
+          <p class="swatch-role">Highlights · sunny accents · warmth</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FDF8F0; border-bottom: 0.5px solid #E8DFC8;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Beach sand</p>
+          <p class="swatch-hex">#FDF8F0</p>
+          <p class="swatch-role">Page background · card fills</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TYPOGRAPHY -->
+  <div class="section">
+    <p class="section-title">Typography</p>
+
+    <div class="type-card">
+      <p class="type-label">Headings — Playfair Display (Google Fonts, free)</p>
+      <div class="type-scale">
+        <div class="type-scale-row">
+          <span class="type-scale-label">H1 · 48px</span>
+          <span style="font-family:'Playfair Display',serif; font-size:2.8rem; color:var(--cliff-deep); font-weight:500; line-height:1.1;">Your guide to Los Gigantes</span>
+        </div>
+        <div class="type-scale-row">
+          <span class="type-scale-label">H2 · 32px</span>
+          <span style="font-family:'Playfair Display',serif; font-size:2rem; color:var(--cliff-deep); font-weight:500;">Things to do</span>
+        </div>
+        <div class="type-scale-row">
+          <span class="type-scale-label">H3 · 22px</span>
+          <span style="font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--cliff-deep); font-weight:500;">Whale watching tours</span>
+        </div>
+      </div>
+      <p class="type-meta">font-family: 'Playfair Display', Georgia, serif · weights: 400, 500, 600</p>
+    </div>
+
+    <div class="type-card">
+      <p class="type-label">Body — Inter (Google Fonts, free)</p>
+      <div class="type-scale">
+        <div class="type-scale-row">
+          <span class="type-scale-label">Body · 16px</span>
+          <span style="font-size:1rem; color:var(--atlantic);">The best restaurants, boat trips, and hidden spots — written by someone who actually lives here.</span>
+        </div>
+        <div class="type-scale-row">
+          <span class="type-scale-label">Small · 14px</span>
+          <span style="font-size:0.875rem; color:var(--atlantic);">Updated April 2026 · 5 min read</span>
+        </div>
+        <div class="type-scale-row">
+          <span class="type-scale-label">Label · 11px</span>
+          <span style="font-size:0.7rem; color:#7A9AA8; text-transform:uppercase; letter-spacing:0.1em; font-weight:600;">Things to do</span>
+        </div>
+      </div>
+      <p class="type-meta">font-family: 'Inter', system-ui, sans-serif · weights: 400 regular, 500 medium, 600 semibold</p>
+    </div>
+  </div>
+
+  <!-- BUTTONS -->
+  <div class="section">
+    <p class="section-title">Buttons & interactive elements</p>
+    <div style="background:var(--white); border:0.5px solid var(--border); border-radius:10px; padding:1.5rem;">
+      <div class="button-row">
+        <button class="btn btn-primary">Book a dance lesson</button>
+        <button class="btn btn-dark">Explore the guide</button>
+        <button class="btn btn-secondary">See restaurants</button>
+        <button class="btn btn-ghost">Read more</button>
+      </div>
+      <div style="margin-top:1rem; padding-top:1rem; border-top:0.5px solid var(--border); font-size:12px; font-family:'Courier New',monospace; color:#7A9AA8;">
+        Primary (coral) — used for dance lessons + key CTAs &nbsp;|&nbsp; Dark — main site navigation actions &nbsp;|&nbsp; Secondary — category links &nbsp;|&nbsp; Ghost — supporting links
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGO CONCEPT -->
+  <div class="section">
+    <p class="section-title">Logo concept</p>
+    <div class="logo-row">
+      <div class="logo-card">
+        <div class="logo-mark">
+          <span class="line1">Los Gigantes</span>
+          <span class="line2">Guide</span>
+        </div>
+        <p class="logo-bg-label">On light background</p>
+      </div>
+      <div class="logo-card dark">
+        <div class="logo-mark">
+          <span class="line1">Los Gigantes</span>
+          <span class="line2">Guide</span>
+        </div>
+        <p class="logo-bg-label">On dark background</p>
+      </div>
+      <div class="logo-card" style="background:var(--sea-salt-dark);">
+        <div class="logo-mark">
+          <span class="line1">Los Gigantes</span>
+          <span class="line2">Guide</span>
+        </div>
+        <p class="logo-bg-label">On sea salt background</p>
+      </div>
+    </div>
+    <p style="font-size:12px; color:#7A9AA8; margin-top:10px;">Note: this is a typographic concept only. Use Looka.com or Brandmark.io to generate a full logo with icon mark.</p>
+  </div>
+
+  <!-- BRAND VOICE -->
+  <div class="section">
+    <p class="section-title">Brand voice & tone</p>
+    <div class="voice-grid">
+      <div class="voice-card">
+        <p class="voice-title">Personality</p>
+        <p class="voice-body">A knowledgeable friend who lives in Los Gigantes. Warm, honest, and direct. Never a corporate travel brand.</p>
+      </div>
+      <div class="voice-card">
+        <p class="voice-title">Audience</p>
+        <p class="voice-body">British tourists, long-stay visitors, expats. Aged 35–65. Want real tips, not TripAdvisor consensus.</p>
+      </div>
+      <div class="voice-card">
+        <p class="voice-title">Tone</p>
+        <p class="voice-body">Conversational, specific, trustworthy. Uses real details (times, prices, insider tips) rather than vague praise.</p>
+      </div>
+      <div class="voice-card">
+        <p class="voice-title">SEO focus</p>
+        <p class="voice-body">Lead with "Los Gigantes" (70% of searches). Add "Tenerife" in subheadings and body copy, not always in titles.</p>
+      </div>
+    </div>
+    <div class="do-dont">
+      <div class="do">
+        <p class="do-label">Write like this</p>
+        <ul>
+          <li>Go at 8am — the 10am trip is packed</li>
+          <li>The black sand gets very hot by noon</li>
+          <li>Ask for the off-menu catch of the day</li>
+          <li>The evening dance class runs Tues & Thurs</li>
+        </ul>
+      </div>
+      <div class="dont">
+        <p class="dont-label">Avoid this</p>
+        <ul>
+          <li>A truly unforgettable experience!</li>
+          <li>One of Tenerife's hidden gems</li>
+          <li>World-class dining awaits you</li>
+          <li>Don't miss this amazing opportunity</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPACING -->
+  <div class="section">
+    <p class="section-title">Spacing scale</p>
+    <div style="background:var(--white); border:0.5px solid var(--border); border-radius:10px; padding:1.5rem;">
+      <div class="spacing-row">
+        <div class="spacing-item"><div class="spacing-box" style="width:8px;height:8px;"></div><p class="spacing-label">4px</p></div>
+        <div class="spacing-item"><div class="spacing-box" style="width:16px;height:16px;"></div><p class="spacing-label">8px</p></div>
+        <div class="spacing-item"><div class="spacing-box" style="width:24px;height:24px;"></div><p class="spacing-label">12px</p></div>
+        <div class="spacing-item"><div class="spacing-box" style="width:32px;height:32px;"></div><p class="spacing-label">16px</p></div>
+        <div class="spacing-item"><div class="spacing-box" style="width:48px;height:48px;"></div><p class="spacing-label">24px</p></div>
+        <div class="spacing-item"><div class="spacing-box" style="width:64px;height:64px;"></div><p class="spacing-label">32px</p></div>
+        <div class="spacing-item"><div class="spacing-box" style="width:96px;height:96px;"></div><p class="spacing-label">48px</p></div>
+      </div>
+      <p style="font-size:12px; color:#7A9AA8; margin-top:1rem; font-family:'Courier New',monospace;">Base unit: 4px · Use multiples of 4 for all padding, margin, and gap values</p>
+    </div>
+  </div>
+
+  <!-- LIVE PREVIEW -->
+  <div class="section">
+    <p class="section-title">Site preview</p>
+    <div class="preview-wrap">
+      <nav class="preview-nav-bar">
+        <span class="logo-text">Los Gigantes Guide</span>
+        <a href="#">Things to do</a>
+        <a href="#">Restaurants</a>
+        <a href="#">Stay</a>
+        <a href="#" class="cta">Dance lessons</a>
+      </nav>
+      <div class="preview-hero">
+        <h2>Your guide to<br>Los Gigantes</h2>
+        <p>Local tips, honest reviews, and hidden spots — by someone who lives here</p>
+        <button class="btn btn-primary">Explore the guide</button>
+      </div>
+      <div class="preview-body">
+        <div class="preview-cards">
+          <div class="preview-card">
+            <p class="preview-card-tag">Boat trips</p>
+            <h4>Whale & dolphin watching</h4>
+            <p>Go at 8am. The morning light is better and the boat is quieter.</p>
+          </div>
+          <div class="preview-card">
+            <p class="preview-card-tag">Restaurants</p>
+            <h4>Where locals actually eat</h4>
+            <p>Avoid the marina tourist traps. Here's where to go instead.</p>
+          </div>
+          <div class="preview-card" style="border-color: var(--sunset-coral);">
+            <p class="preview-card-tag" style="color:var(--sunset-coral);">Dance lessons</p>
+            <h4>Salsa & bachata classes</h4>
+            <p>Tuesday & Thursday evenings. All levels welcome. Book ahead.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <strong>Los Gigantes Guide</strong> — Brand Style Guide<br>
+  Colours · Playfair Display + Inter · Sunset coral for dance CTAs<br>
+  <span style="opacity:0.5; font-size:11px; margin-top:6px; display:block;">Save this file and open in any browser for future reference</span>
+</footer>
+
+</body>
+</html>

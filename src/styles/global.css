@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+/* Brand font imports — self-hosted via @fontsource, no CDN, no GDPR exposure */
+@import "@fontsource/playfair-display/400.css";
+@import "@fontsource/playfair-display/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+
+@theme {
+  /* Colour palette — Los Gigantes brand guide */
+  --color-cliff-deep: #1A6B8A;
+  --color-atlantic: #2E8FAA;
+  --color-sky-water: #7DD4E8;
+  --color-sunset-coral: #C85A2A;
+  --color-golden-hour: #E8A830;
+  --color-sea-salt: #FDF8F0;
+  --color-sea-salt-dark: #F5EDD8;
+  --color-volcanic: #2A5C70;
+  --color-border: rgba(30, 107, 138, 0.15);
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* Spacing scale */
+  --spacing-section: 4rem;
+}

@@ -1,0 +1,8 @@
+{
+  // Cloudflare Pages configuration for losgigantesguide.com
+  "name": "losgigantesguide",
+  "pages_build_output_dir": "./dist",
+  "assets": {
+    "not_found_handling": "404-page"
+  }
+}
