@@ -1,0 +1,46 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page not found — Los Gigantes Guide"
+  description="The page you were looking for could not be found."
+  noindex={true}
+>
+  <div class="max-w-2xl mx-auto px-4 py-20 text-center">
+    <p class="text-8xl mb-6" aria-hidden="true">🌊</p>
+    <h1 class="font-serif font-bold text-cliff-deep mb-4" style="font-size: clamp(1.8rem, 4vw, 2.2rem);">
+      Page not found
+    </h1>
+    <p class="text-atlantic text-lg mb-8 leading-relaxed">
+      This page seems to have drifted off. Try checking the URL, or browse what's here.
+    </p>
+
+    <div class="flex flex-wrap gap-4 justify-center mb-12">
+      <a href="/" class="inline-block bg-cliff-deep text-sea-salt font-semibold px-6 py-3 rounded-md no-underline hover:opacity-90 transition-opacity">
+        Go to homepage
+      </a>
+      <a href="/activities/" class="inline-block bg-transparent text-cliff-deep font-semibold px-6 py-3 rounded-md no-underline border border-cliff-deep hover:bg-sea-salt-dark transition-colors">
+        Things to do
+      </a>
+    </div>
+
+    <ul class="flex flex-col gap-2 list-none p-0 text-left inline-block" role="list">
+      <li>
+        <a href="/activities/" class="text-atlantic hover:text-cliff-deep no-underline hover:underline">→ Things to do in Los Gigantes</a>
+      </li>
+      <li>
+        <a href="/restaurants/" class="text-atlantic hover:text-cliff-deep no-underline hover:underline">→ Restaurants</a>
+      </li>
+      <li>
+        <a href="/services/" class="text-atlantic hover:text-cliff-deep no-underline hover:underline">→ Local services</a>
+      </li>
+      <li>
+        <a href="/accommodation/" class="text-atlantic hover:text-cliff-deep no-underline hover:underline">→ Where to stay</a>
+      </li>
+      <li>
+        <a href="/dance-lessons/" class="text-atlantic hover:text-cliff-deep no-underline hover:underline">→ Dance lessons</a>
+      </li>
+    </ul>
+  </div>
+</BaseLayout>

@@ -1,0 +1,43 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import PlaceCard from '@components/PlaceCard.astro';
+
+type Entry =
+  | CollectionEntry<'activities'>
+  | CollectionEntry<'restaurants'>
+  | CollectionEntry<'services'>
+  | CollectionEntry<'dance-lessons'>
+  | CollectionEntry<'accommodation'>;
+
+interface Props {
+  currentId: string;
+  currentTags: string[];
+  entries: Entry[];
+  categorySlug: string;
+}
+
+const { currentId, currentTags, entries, categorySlug } = Astro.props;
+
+const related = entries
+  .filter(
+    (e) =>
+      e.id !== currentId &&
+      e.data.tags.some((t) => currentTags.includes(t))
+  )
+  .slice(0, 3);
+---
+
+{related.length > 0 && (
+  <section class="mt-12" aria-label="Related listings">
+    <h2 class="font-serif font-bold text-cliff-deep mb-6" style="font-size: clamp(1.2rem, 2.5vw, 1.5rem);">
+      More like this
+    </h2>
+    <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 list-none p-0 m-0" role="list">
+      {related.map((entry) => (
+        <li>
+          <PlaceCard entry={entry} categorySlug={categorySlug} headingLevel={3} />
+        </li>
+      ))}
+    </ul>
+  </section>
+)}

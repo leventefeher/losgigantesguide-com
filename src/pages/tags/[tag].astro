@@ -1,0 +1,85 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PlaceCard from '@components/PlaceCard.astro';
+
+type Entry =
+  | CollectionEntry<'activities'>
+  | CollectionEntry<'restaurants'>
+  | CollectionEntry<'services'>
+  | CollectionEntry<'dance-lessons'>
+  | CollectionEntry<'accommodation'>;
+
+const categorySlugMap: Record<string, string> = {
+  activities: 'activities',
+  restaurants: 'restaurants',
+  services: 'services',
+  'dance-lessons': 'dance-lessons',
+  accommodation: 'accommodation',
+};
+
+export async function getStaticPaths() {
+  const [activities, restaurants, services, danceLessons, accommodation] =
+    await Promise.all([
+      getCollection('activities'),
+      getCollection('restaurants'),
+      getCollection('services'),
+      getCollection('dance-lessons'),
+      getCollection('accommodation'),
+    ]);
+
+  const allEntries: Entry[] = [
+    ...activities,
+    ...restaurants,
+    ...services,
+    ...danceLessons,
+    ...accommodation,
+  ];
+
+  // Collect all unique tags
+  const tagSet = new Set(allEntries.flatMap((e) => e.data.tags));
+
+  return [...tagSet].map((tag) => ({
+    params: { tag },
+    props: {
+      tag,
+      entries: allEntries.filter((e) => e.data.tags.includes(tag)),
+    },
+  }));
+}
+
+const { tag, entries } = Astro.props;
+---
+
+<BaseLayout
+  title={`Places tagged: ${tag} — Los Gigantes Guide`}
+  description={`All places tagged "${tag}" in Los Gigantes, Tenerife.`}
+  noindex={true}
+>
+  <div class="max-w-6xl mx-auto px-4 py-12">
+    <p class="text-sm text-atlantic mb-2">
+      <a href="/" class="text-atlantic hover:text-cliff-deep no-underline hover:underline">Home</a>
+      {' › '}
+      <span>Tags</span>
+    </p>
+    <h1 class="font-serif font-bold text-cliff-deep mb-2" style="font-size: clamp(1.8rem, 4vw, 2.5rem);">
+      {tag}
+    </h1>
+    <p class="text-atlantic mb-8">
+      {entries.length} place{entries.length !== 1 ? 's' : ''} tagged &ldquo;{tag}&rdquo;
+    </p>
+
+    <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 list-none p-0 m-0" role="list">
+      {entries.map((entry) => (
+        <li>
+          <PlaceCard
+            entry={entry}
+            categorySlug={categorySlugMap[entry.collection]}
+            headingLevel={2}
+          />
+        </li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>

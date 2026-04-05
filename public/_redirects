@@ -1,0 +1,6 @@
+# Cloudflare Pages redirects
+# https://developers.cloudflare.com/pages/configuration/redirects/
+#
+# 404 handling is done via wrangler.jsonc not_found_handling: "404-page"
+# Add 301 redirects here if URLs are restructured after go-live, e.g.:
+# /old-path/  /new-path/  301
