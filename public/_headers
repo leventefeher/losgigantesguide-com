@@ -28,4 +28,4 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   # Fonts are self-hosted via @fontsource — no CDN, no fonts.gstatic.com needed
   # If Google Maps embed is added later, add: frame-src https://www.google.com
-  Content-Security-Policy: default-src 'self'; img-src 'self' data: https:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'
+  Content-Security-Policy: default-src 'self'; img-src 'self' data: https:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' https://www.googletagmanager.com 'unsafe-inline'; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com

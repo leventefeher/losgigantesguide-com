@@ -46,6 +46,14 @@ const {
         set:html={JSON.stringify(Array.isArray(jsonLd) ? jsonLd : [jsonLd])}
       />
     )}
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CTQXK0XF4L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(...args: unknown[]) { window.dataLayer.push(args); }
+      gtag('js', new Date());
+      gtag('config', 'G-CTQXK0XF4L');
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>

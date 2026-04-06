@@ -72,6 +72,39 @@ const accommodation = defineCollection({
     }),
 });
 
+const fitness = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/fitness' }),
+  schema: ({ image }) =>
+    getBaseSchema(image).extend({
+      duration: z.string().optional(),
+      difficulty: z.enum(['easy', 'moderate', 'hard']).optional(),
+      indoorOutdoor: z.enum(['indoor', 'outdoor', 'both']).optional(),
+    }),
+});
+
+const dayTrips = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/day-trips' }),
+  schema: ({ image }) =>
+    getBaseSchema(image).extend({
+      destination: z.string().optional(),
+      distance: z.string().optional(),
+      duration: z.string().optional(),
+      howToGetThere: z.string().optional(),
+    }),
+});
+
+const walks = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/walks' }),
+  schema: ({ image }) =>
+    getBaseSchema(image).extend({
+      distance: z.string().optional(),
+      duration: z.string().optional(),
+      difficulty: z.enum(['easy', 'moderate', 'hard']).optional(),
+      startPoint: z.string().optional(),
+      elevationGain: z.string().optional(),
+    }),
+});
+
 const siteConfig = defineCollection({
   loader: file('./src/data/site-config.json'),
   schema: z.object({
@@ -90,5 +123,8 @@ export const collections = {
   services,
   'dance-lessons': danceLessons,
   accommodation,
+  fitness,
+  'day-trips': dayTrips,
+  walks,
   siteConfig,
 };
