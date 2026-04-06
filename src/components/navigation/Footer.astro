@@ -81,7 +81,11 @@ const config = configs[0]?.data;
 
     <div class="mt-10 pt-6 border-t border-border text-xs opacity-60 flex flex-col md:flex-row justify-between gap-2">
       <p>&copy; {new Date().getFullYear()} Los Gigantes Guide. All rights reserved.</p>
-      <p>{config?.address}</p>
+      <p>
+        {config?.address}
+        {' · '}
+        <a href="/credits/" class="underline hover:opacity-100">Photo credits</a>
+      </p>
     </div>
   </div>
 </footer>
