@@ -1,29 +1,66 @@
 ---
-// Purely typographic hero — no photograph required for v1
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+  /**
+   * Optional background image. Import the image in the parent page and pass it here.
+   * Example (in index.astro):
+   *   import heroImage from '../assets/images/hero.jpg';
+   *   <Hero image={heroImage} imageAlt="The Los Gigantes cliffs at sunset" />
+   */
+  image?: ImageMetadata;
+  imageAlt?: string;
+}
+
+const { image, imageAlt = '' } = Astro.props;
 ---
 
-<section class="bg-cliff-deep py-20 px-4 text-center">
-  <p class="text-sky-water text-sm font-semibold tracking-widest uppercase mb-4">
-    Los Gigantes, Tenerife
-  </p>
-  <h1 class="font-serif text-sea-salt font-bold mb-6" style="font-size: clamp(2rem, 5vw + 1rem, 3.2rem); line-height: 1.15;">
-    Los Gigantes Guide
-  </h1>
-  <p class="text-sky-water text-lg max-w-xl mx-auto mb-8 leading-relaxed">
-    Los Gigantes, like a local.
-  </p>
-  <div class="flex flex-wrap gap-4 justify-center">
-    <a
-      href="/activities/"
-      class="inline-block bg-sunset-coral text-sea-salt font-semibold px-8 py-3 rounded-md no-underline hover:opacity-90 transition-opacity"
-    >
-      Things to do
-    </a>
-    <a
-      href="/dance-lessons/"
-      class="inline-block bg-transparent text-sea-salt font-semibold px-8 py-3 rounded-md no-underline border border-sea-salt hover:bg-sea-salt hover:text-cliff-deep transition-colors"
-    >
-      Dance lessons
-    </a>
+<section class="relative bg-cliff-deep py-24 px-4 text-center overflow-hidden">
+
+  {/* Background image + overlay */}
+  {image && (
+    <>
+      <Image
+        src={image}
+        alt={imageAlt}
+        width={1920}
+        height={700}
+        loading="eager"
+        decoding="sync"
+        class="absolute inset-0 w-full h-full object-cover"
+        aria-hidden={imageAlt === '' ? 'true' : undefined}
+      />
+      {/* Dark overlay — cliff-deep at 65% keeps text contrast well above WCAG AA */}
+      <div class="absolute inset-0 bg-cliff-deep/65" aria-hidden="true" />
+    </>
+  )}
+
+  {/* Content sits above the overlay */}
+  <div class="relative z-10">
+    <p class="text-sky-water text-sm font-semibold tracking-widest uppercase mb-4">
+      Los Gigantes, Tenerife
+    </p>
+    <h1 class="font-serif text-sea-salt font-bold mb-6" style="font-size: clamp(2rem, 5vw + 1rem, 3.2rem); line-height: 1.15;">
+      Los Gigantes Guide
+    </h1>
+    <p class="text-sky-water text-lg max-w-xl mx-auto mb-8 leading-relaxed">
+      Los Gigantes, like a local.
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a
+        href="/activities/"
+        class="inline-block bg-sunset-coral text-sea-salt font-semibold px-8 py-3 rounded-md no-underline hover:opacity-90 transition-opacity"
+      >
+        Things to do
+      </a>
+      <a
+        href="/dance-lessons/"
+        class="inline-block bg-transparent text-sea-salt font-semibold px-8 py-3 rounded-md no-underline border border-sea-salt hover:bg-sea-salt hover:text-cliff-deep transition-colors"
+      >
+        Dance lessons
+      </a>
+    </div>
   </div>
+
 </section>
