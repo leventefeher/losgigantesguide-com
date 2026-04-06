@@ -18,7 +18,7 @@ const {
 } = Astro.props;
 
 const siteName = 'Los Gigantes Guide';
-const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
+const fullTitle = title === siteName || title.includes(siteName) ? title : `${title} | ${siteName}`;
 const canonical = canonicalUrl ?? Astro.url.href;
 ---
 
