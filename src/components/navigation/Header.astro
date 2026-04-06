@@ -35,7 +35,7 @@ function isActive(href: string) {
               'text-sm font-medium no-underline transition-colors',
               isActive(href)
                 ? 'text-sea-salt underline underline-offset-4'
-                : 'text-sky-water hover:text-sea-salt',
+                : 'text-sea-salt/75 hover:text-sea-salt',
             ]}
             aria-current={isActive(href) ? 'page' : undefined}
           >
@@ -61,7 +61,7 @@ function isActive(href: string) {
     <!-- Mobile nav — simple wrapping fallback, no JS -->
     <details class="md:hidden relative">
       <summary
-        class="list-none cursor-pointer text-sky-water hover:text-sea-salt p-2"
+        class="list-none cursor-pointer text-sea-salt/75 hover:text-sea-salt p-2"
         aria-label="Open navigation menu"
       >
         <svg
@@ -89,7 +89,7 @@ function isActive(href: string) {
           <li>
             <a
               href={href}
-              class="block text-sky-water hover:text-sea-salt font-medium no-underline py-1"
+              class="block text-sea-salt/75 hover:text-sea-salt font-medium no-underline py-1"
             >
               {label}
             </a>
