@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "losgigantesguide",
+      "runtimeExecutable": "/bin/bash",
+      "runtimeArgs": [".claude/dev.sh"],
+      "port": 4322
+    }
+  ]
+}

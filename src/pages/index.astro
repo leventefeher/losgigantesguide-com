@@ -3,6 +3,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import Hero from '@components/home/Hero.astro';
 import CategoryGrid from '@components/home/CategoryGrid.astro';
 import FeaturedListings from '@components/home/FeaturedListings.astro';
+import heroImage from '@assets/images/heroes/maksim-shutov-unsplash-clifs-with-boat.jpg';
 
 const websiteJsonLd = {
   '@context': 'https://schema.org',
@@ -20,7 +21,7 @@ const websiteJsonLd = {
   description="Your local guide to Los Gigantes, Tenerife. Honest recommendations for things to do, restaurants, services, accommodation, and dance lessons."
   jsonLd={websiteJsonLd}
 >
-  <Hero />
+  <Hero image={heroImage} imageAlt="The Los Gigantes cliffs with a boat in the foreground" />
   <CategoryGrid />
   <FeaturedListings />
 </BaseLayout>
