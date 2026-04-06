@@ -1,59 +1,32 @@
 ---
 const categories = [
   {
-    label: 'Things to do',
-    href: '/activities/',
-    emoji: '🏄',
-    description: 'Whale watching, kayaking, boat trips, and more.',
+    label: "Things to do",
+    href: "/activities/",
+    emoji: "🏄",
+    description: "Whale watching, kayaking, boat trips, and more.",
     accent: false,
   },
   {
-    label: 'Walks',
-    href: '/walks/',
-    emoji: '🥾',
-    description: 'Coastal paths, cliff viewpoints, and routes away from the crowds.',
+    label: "Restaurants",
+    href: "/restaurants/",
+    emoji: "🐟",
+    description: "Fresh fish, local tapas, and the places the locals eat.",
     accent: false,
   },
   {
-    label: 'Day trips',
-    href: '/day-trips/',
-    emoji: '🚗',
-    description: 'Masca, La Gomera, and other escapes worth the journey.',
+    label: "Services",
+    href: "/services/",
+    emoji: "🔧",
+    description: "Reliable tradespeople, photographers, and local pros.",
     accent: false,
   },
   {
-    label: 'Fitness',
-    href: '/fitness/',
-    emoji: '🏋️',
-    description: 'Outdoor bootcamps, yoga, and classes that make the most of the setting.',
-    accent: false,
-  },
-  {
-    label: 'Restaurants',
-    href: '/restaurants/',
-    emoji: '🐟',
-    description: 'Fresh fish, local tapas, and the places the locals eat.',
-    accent: false,
-  },
-  {
-    label: 'Services',
-    href: '/services/',
-    emoji: '🔧',
-    description: 'Reliable tradespeople, photographers, and local pros.',
-    accent: false,
-  },
-  {
-    label: 'Stay',
-    href: '/accommodation/',
-    emoji: '🏡',
-    description: 'Self-catering apartments and accommodation that works for longer.',
-    accent: false,
-  },
-  {
-    label: 'Dance lessons',
-    href: '/dance-lessons/',
-    emoji: '💃',
-    description: 'Salsa and bachata classes. No partner needed.',
+    label: "Stay",
+    href: "/accommodation/",
+    emoji: "🏡",
+    description:
+      "Self-catering apartments and accommodation that works for longer.",
     accent: false,
   },
 ] as const;
@@ -61,34 +34,44 @@ const categories = [
 
 <section class="py-16 px-4 bg-sea-salt">
   <div class="max-w-6xl mx-auto">
-    <h2 class="font-serif text-cliff-deep font-bold text-center mb-10" style="font-size: clamp(1.5rem, 3vw, 2rem);">
+    <h2
+      class="font-serif text-cliff-deep font-bold text-center mb-10"
+      style="font-size: clamp(1.5rem, 3vw, 2rem);"
+    >
       What's here
     </h2>
-    <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 list-none p-0 m-0" role="list">
-      {categories.map(({ label, href, emoji, description, accent }) => (
-        <li>
-          <a
-            href={href}
-            class:list={[
-              'block bg-white rounded-xl p-6 no-underline transition-shadow hover:shadow-md group',
-              accent
-                ? 'border-2 border-sunset-coral'
-                : 'border border-border',
-            ]}
-          >
-            <span class="text-3xl mb-3 block" aria-hidden="true">{emoji}</span>
-            <h3
+    <ul
+      class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 list-none p-0 m-0"
+      role="list"
+    >
+      {
+        categories.map(({ label, href, emoji, description, accent }) => (
+          <li>
+            <a
+              href={href}
               class:list={[
-                'font-serif font-bold text-xl mb-2 group-hover:underline underline-offset-2',
-                accent ? 'text-sunset-coral' : 'text-cliff-deep',
+                "block bg-white rounded-xl p-6 no-underline transition-shadow hover:shadow-md group",
+                accent
+                  ? "border-2 border-sunset-coral"
+                  : "border border-border",
               ]}
             >
-              {label}
-            </h3>
-            <p class="text-sm text-atlantic leading-relaxed">{description}</p>
-          </a>
-        </li>
-      ))}
+              <span class="text-3xl mb-3 block" aria-hidden="true">
+                {emoji}
+              </span>
+              <h3
+                class:list={[
+                  "font-serif font-bold text-xl mb-2 group-hover:underline underline-offset-2",
+                  accent ? "text-sunset-coral" : "text-cliff-deep",
+                ]}
+              >
+                {label}
+              </h3>
+              <p class="text-sm text-atlantic leading-relaxed">{description}</p>
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </section>

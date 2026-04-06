@@ -47,10 +47,10 @@ const {
       />
     )}
     <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CTQXK0XF4L"></script>
-    <script>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-CTQXK0XF4L"></script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
-      function gtag(...args: unknown[]) { window.dataLayer.push(args); }
+      function gtag() { window.dataLayer.push(arguments); }
       gtag('js', new Date());
       gtag('config', 'G-CTQXK0XF4L');
     </script>

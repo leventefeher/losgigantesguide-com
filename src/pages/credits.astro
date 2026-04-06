@@ -1,6 +1,6 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
-import credits from '../data/photo-credits.json';
+import BaseLayout from "@layouts/BaseLayout.astro";
+import credits from "../data/photo-credits.json";
 ---
 
 <BaseLayout
@@ -9,41 +9,97 @@ import credits from '../data/photo-credits.json';
   noindex={true}
 >
   <div class="max-w-3xl mx-auto px-4 py-12">
-    <h1 class="font-serif font-bold text-cliff-deep mb-3" style="font-size: clamp(1.8rem, 4vw, 2.5rem);">
+    <h1
+      class="font-serif font-bold text-cliff-deep mb-3"
+      style="font-size: clamp(1.8rem, 4vw, 2.5rem);"
+    >
       Photo Credits
     </h1>
     <p class="text-atlantic mb-10">
-      All photographs used on this site are licensed under their respective terms. Attributions are listed below.
+      All photographs used on this site are licensed under their respective
+      terms. Attributions are listed below.
     </p>
 
     <ul class="flex flex-col gap-4 list-none p-0" role="list">
-      {credits.map((credit) => (
-        <li class="bg-white border border-border rounded-xl px-5 py-4">
-          <p class="text-sm text-volcanic font-medium mb-1">{credit.description}</p>
-          <p class="text-sm text-atlantic">
-            Photo by{' '}
-            <a
-              href={credit.photographerUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {credit.photographer}
-            </a>
-            {' '}on{' '}
-            <a
-              href={credit.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {credit.source}
-            </a>
-          </p>
-        </li>
-      ))}
+      {
+        credits.map((credit) => (
+          <li class="bg-white border border-border rounded-xl px-5 py-4">
+            <p class="text-sm text-volcanic font-medium mb-1">
+              {credit.description}
+            </p>
+            <p class="text-sm text-atlantic">
+              Photo by{" "}
+              <a
+                href={credit.photographerUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {credit.photographer}
+              </a>{" "}
+              on{" "}
+              <a
+                href={credit.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {credit.source}
+              </a>
+            </p>
+          </li>
+        ))
+      }
     </ul>
 
-    {credits.length === 0 && (
-      <p class="text-atlantic">No photo credits yet.</p>
-    )}
+    {credits.length === 0 && <p class="text-atlantic">No photo credits yet.</p>}
   </div>
+
+  Photo by <a
+    href="https://unsplash.com/@sushimi?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+    >Susanna Marsiglia</a
+  > on <a
+    href="https://unsplash.com/photos/a-large-group-of-boats-in-the-water-X_usZYwrpBk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+    >Unsplash</a
+  >
+  Photo by <a
+    href="https://unsplash.com/@eugene_1?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+    >Eugen Sacalî</a
+  > on <a
+    href="https://unsplash.com/photos/a-body-of-water-with-boats-in-it-and-buildings-around-it-jDRN9z_MVvg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+    >Unsplash</a
+  >
+  Photo by <a
+    href="https://unsplash.com/@borbus?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+    >Boris Busorgin</a
+  > on <a
+    href="https://unsplash.com/photos/a-view-of-the-ocean-from-a-cliff-ikSB6LseeKw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+    >Unsplash</a
+  >
+  Photo by <a
+    href="https://unsplash.com/@katasha?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+    >Katarzyna Zygnerska</a
+  > on <a
+    href="https://unsplash.com/photos/sunlight-streams-through-mountains-onto-a-village-zw9mCwCOtkk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+    >Unsplash</a
+  >
+  Photo by <a
+    href="https://unsplash.com/@borbus?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+    >Boris Busorgin</a
+  > on <a
+    href="https://unsplash.com/photos/a-large-body-of-water-surrounded-by-mountains-cWUvHh9nb9Y?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+    >Unsplash</a
+  >
+  Photo by <a
+    href="https://unsplash.com/@janbachor?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+    >Jan Bachor</a
+  > on <a
+    href="https://unsplash.com/photos/an-aerial-view-of-a-coastal-city-vq8fRUWnrGg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+    >Unsplash</a
+  >
+  Photo by <a
+    href="https://unsplash.com/@janbachor?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+    >Jan Bachor</a
+  > on <a
+    href="https://unsplash.com/photos/an-aerial-view-of-a-coastal-city-vq8fRUWnrGg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+    >Unsplash</a
+  >
 </BaseLayout>

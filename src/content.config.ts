@@ -121,10 +121,6 @@ export const collections = {
   activities,
   restaurants,
   services,
-  'dance-lessons': danceLessons,
   accommodation,
-  fitness,
-  'day-trips': dayTrips,
-  walks,
   siteConfig,
 };
