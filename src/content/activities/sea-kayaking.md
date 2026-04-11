@@ -5,6 +5,7 @@ status: seasonal
 seasonNote: "Best April–October; winter swells can suspend tours"
 address: "Playa de Los Guios, Los Gigantes"
 tags: ["outdoor", "water", "adventure", "guided"]
+coverImage: ./sea-kayaking.jpg
 coverImageAlt: "Kayakers paddling through a sea cave beneath the Los Gigantes cliffs"
 priceRange: "€€"
 featured: false

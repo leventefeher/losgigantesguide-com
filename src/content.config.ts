@@ -53,55 +53,12 @@ const services = defineCollection({
     }),
 });
 
-const danceLessons = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/dance-lessons' }),
-  schema: ({ image }) =>
-    getBaseSchema(image).extend({
-      schedule: z.string(),
-      level: z.array(z.enum(['beginner', 'intermediate', 'all-levels'])),
-      whatsapp: z.string(),
-    }),
-});
-
 const accommodation = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/accommodation' }),
   schema: ({ image }) =>
     getBaseSchema(image).extend({
       roomTypes: z.array(z.string()).default([]),
       sleeps: z.number().optional(),
-    }),
-});
-
-const fitness = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/fitness' }),
-  schema: ({ image }) =>
-    getBaseSchema(image).extend({
-      duration: z.string().optional(),
-      difficulty: z.enum(['easy', 'moderate', 'hard']).optional(),
-      indoorOutdoor: z.enum(['indoor', 'outdoor', 'both']).optional(),
-    }),
-});
-
-const dayTrips = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/day-trips' }),
-  schema: ({ image }) =>
-    getBaseSchema(image).extend({
-      destination: z.string().optional(),
-      distance: z.string().optional(),
-      duration: z.string().optional(),
-      howToGetThere: z.string().optional(),
-    }),
-});
-
-const walks = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/walks' }),
-  schema: ({ image }) =>
-    getBaseSchema(image).extend({
-      distance: z.string().optional(),
-      duration: z.string().optional(),
-      difficulty: z.enum(['easy', 'moderate', 'hard']).optional(),
-      startPoint: z.string().optional(),
-      elevationGain: z.string().optional(),
     }),
 });
 

@@ -8,24 +8,21 @@ type Entry =
   | CollectionEntry<'activities'>
   | CollectionEntry<'restaurants'>
   | CollectionEntry<'services'>
-  | CollectionEntry<'dance-lessons'>
   | CollectionEntry<'accommodation'>;
 
 const categorySlugMap: Record<string, string> = {
   activities: 'activities',
   restaurants: 'restaurants',
   services: 'services',
-  'dance-lessons': 'dance-lessons',
   accommodation: 'accommodation',
 };
 
 export async function getStaticPaths() {
-  const [activities, restaurants, services, danceLessons, accommodation] =
+  const [activities, restaurants, services, accommodation] =
     await Promise.all([
       getCollection('activities'),
       getCollection('restaurants'),
       getCollection('services'),
-      getCollection('dance-lessons'),
       getCollection('accommodation'),
     ]);
 
@@ -33,7 +30,6 @@ export async function getStaticPaths() {
     ...activities,
     ...restaurants,
     ...services,
-    ...danceLessons,
     ...accommodation,
   ];
 

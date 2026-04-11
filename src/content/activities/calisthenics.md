@@ -4,15 +4,15 @@ description: "Outdoor bodyweight training sessions focused on strength, mobility
 status: open
 address: "Parque de Calisthenics, Alcalá, Guía de Isora, Tenerife"
 phone: "+34 600 000 000"
-"
 tags: ["outdoor", "fitness"]
+coverImage: ./calisthenics.jpg
 coverImageAlt: "Group doing calisthenics exercises outdoors in Alcalá at sunset"
-priceRange: "10-15€"
+priceRange: "€"
 featured: true
 publishedAt: 2026-04-01
 updatedAt: 2026-04-01
 duration: "1 hour"
-difficulty: all levels
+difficulty: easy
 lat: 28.2083
 lng: -16.8390
 ---

@@ -67,6 +67,7 @@
 
   p + p { margin-top: 1rem; }
 
+
   /* ─── Links ────────────────────────────────────────────── */
 
   /* Default link style — Tailwind text-* utilities override this */
@@ -139,6 +140,7 @@
   .prose ol {
     padding-left: 1.5rem;
     margin: 0.75rem 0;
+    list-style: revert;
   }
 
   .prose li + li {

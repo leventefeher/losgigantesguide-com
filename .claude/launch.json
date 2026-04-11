@@ -5,7 +5,7 @@
       "name": "losgigantesguide",
       "runtimeExecutable": "/bin/bash",
       "runtimeArgs": [".claude/dev.sh"],
-      "port": 4322
+      "port": 4321
     }
   ]
 }

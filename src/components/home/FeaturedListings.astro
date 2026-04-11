@@ -10,23 +10,20 @@ type AnyEntry =
   | CollectionEntry<'activities'>
   | CollectionEntry<'restaurants'>
   | CollectionEntry<'services'>
-  | CollectionEntry<'dance-lessons'>
   | CollectionEntry<'accommodation'>;
 
 const categorySlugMap: Record<string, string> = {
   activities: 'activities',
   restaurants: 'restaurants',
   services: 'services',
-  'dance-lessons': 'dance-lessons',
   accommodation: 'accommodation',
 };
 
-const [activities, restaurants, services, danceLessons, accommodation] =
+const [activities, restaurants, services, accommodation] =
   await Promise.all([
     getCollection('activities'),
     getCollection('restaurants'),
     getCollection('services'),
-    getCollection('dance-lessons'),
     getCollection('accommodation'),
   ]);
 
@@ -34,7 +31,6 @@ const allEntries: AnyEntry[] = [
   ...activities,
   ...restaurants,
   ...services,
-  ...danceLessons,
   ...accommodation,
 ];
 
