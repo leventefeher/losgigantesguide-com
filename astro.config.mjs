@@ -17,7 +17,10 @@ export default defineConfig({
     react(),
     keystatic(),
     sitemap({
-      filter: (page) => !page.includes('/tags/'),
+      filter: (page) =>
+        !page.includes('/tags/') &&
+        !page.includes('/credits/') &&
+        !page.includes('/404/'),
       serialize(item) {
         return {
           ...item,
