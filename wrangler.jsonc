@@ -2,5 +2,5 @@
   // Cloudflare Pages configuration for losgigantesguide.com
   // 404 handling is automatic — Cloudflare Pages serves dist/404.html for unmatched routes
   "name": "losgigantesguide",
-  "pages_build_output_dir": "./dist"
+  "pages_build_output_dir": "./dist/client"
 }
