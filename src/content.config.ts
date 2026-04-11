@@ -67,7 +67,6 @@ const siteConfig = defineCollection({
   schema: z.object({
     id: z.string(),
     phone: z.string(),
-    whatsapp: z.string(),
     email: z.string().email(),
     address: z.string(),
     instagramUrl: z.string().url().optional(),

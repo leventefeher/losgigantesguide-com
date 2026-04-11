@@ -36,41 +36,10 @@ const config = configs[0]?.data;
           Contact
         </h3>
         <ul class="flex flex-col gap-2 list-none text-sm opacity-80">
-          {config?.whatsapp && (
-            <li>
-              <a
-                href={`https://wa.me/${config.whatsapp}`}
-                class="text-sky-water hover:text-sea-salt no-underline hover:opacity-100"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                WhatsApp us
-              </a>
-            </li>
-          )}
-          {config?.phone && (
-            <li>
-              <a href={`tel:${config.phone}`} class="text-sky-water hover:text-sea-salt no-underline hover:opacity-100">
-                {config.phone}
-              </a>
-            </li>
-          )}
           {config?.email && (
             <li>
               <a href={`mailto:${config.email}`} class="text-sky-water hover:text-sea-salt no-underline hover:opacity-100">
                 {config.email}
-              </a>
-            </li>
-          )}
-          {config?.instagramUrl && (
-            <li>
-              <a
-                href={config.instagramUrl}
-                class="text-sky-water hover:text-sea-salt no-underline hover:opacity-100"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Instagram
               </a>
             </li>
           )}
