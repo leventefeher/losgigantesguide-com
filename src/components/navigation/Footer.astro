@@ -5,13 +5,13 @@ const configs = await getCollection('siteConfig');
 const config = configs[0]?.data;
 ---
 
-<footer class="bg-volcanic text-sky-water mt-16">
+<footer class="bg-volcanic text-sea-salt mt-16">
   <div class="max-w-6xl mx-auto px-4 py-12">
     <div class="grid md:grid-cols-3 gap-8">
       <!-- About -->
       <div>
         <h2 class="font-serif text-sea-salt text-lg mb-3">Los Gigantes Guide</h2>
-        <p class="text-sm leading-relaxed opacity-80">
+        <p class="text-sm text-sea-salt/80 leading-relaxed">
           Local tips, honest reviews, and hidden spots — by someone who lives here.
           Everything you need for a holiday or a longer stay in Los Gigantes, Tenerife.
         </p>
@@ -23,10 +23,10 @@ const config = configs[0]?.data;
           Explore
         </h3>
         <ul class="flex flex-col gap-2 list-none">
-          <li><a href="/activities/" class="text-sm text-sky-water hover:text-sea-salt no-underline opacity-80 hover:opacity-100">Things to do</a></li>
-          <li><a href="/restaurants/" class="text-sm text-sky-water hover:text-sea-salt no-underline opacity-80 hover:opacity-100">Restaurants</a></li>
-          <li><a href="/services/" class="text-sm text-sky-water hover:text-sea-salt no-underline opacity-80 hover:opacity-100">Services</a></li>
-          <li><a href="/accommodation/" class="text-sm text-sky-water hover:text-sea-salt no-underline opacity-80 hover:opacity-100">Stay</a></li>
+          <li><a href="/activities/" class="text-sm text-sea-salt/80 hover:text-sea-salt no-underline">Things to do</a></li>
+          <li><a href="/restaurants/" class="text-sm text-sea-salt/80 hover:text-sea-salt no-underline">Restaurants</a></li>
+          <li><a href="/services/" class="text-sm text-sea-salt/80 hover:text-sea-salt no-underline">Services</a></li>
+          <li><a href="/accommodation/" class="text-sm text-sea-salt/80 hover:text-sea-salt no-underline">Stay</a></li>
         </ul>
       </div>
 
@@ -35,10 +35,10 @@ const config = configs[0]?.data;
         <h3 class="font-sans font-semibold text-sea-salt text-sm uppercase tracking-wider mb-3">
           Contact
         </h3>
-        <ul class="flex flex-col gap-2 list-none text-sm opacity-80">
+        <ul class="flex flex-col gap-2 list-none text-sm">
           {config?.email && (
             <li>
-              <a href={`mailto:${config.email}`} class="text-sky-water hover:text-sea-salt no-underline hover:opacity-100">
+              <a href={`mailto:${config.email}`} class="text-sea-salt/80 hover:text-sea-salt no-underline">
                 {config.email}
               </a>
             </li>
@@ -47,12 +47,12 @@ const config = configs[0]?.data;
       </div>
     </div>
 
-    <div class="mt-10 pt-6 border-t border-border text-xs opacity-60 flex flex-col md:flex-row justify-between gap-2">
+    <div class="mt-10 pt-6 border-t border-border text-xs text-sea-salt/75 flex flex-col md:flex-row justify-between gap-2">
       <p>&copy; {new Date().getFullYear()} Los Gigantes Guide. All rights reserved.</p>
       <p>
         {config?.address}
         {' · '}
-        <a href="/credits/" class="underline hover:opacity-100">Photo credits</a>
+        <a href="/credits/" class="text-sea-salt/75 hover:text-sea-salt underline">Photo credits</a>
       </p>
     </div>
   </div>
