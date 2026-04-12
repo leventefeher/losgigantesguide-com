@@ -1,9 +1,12 @@
 ---
+import { getImage } from 'astro:assets';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Hero from '@components/home/Hero.astro';
 import CategoryGrid from '@components/home/CategoryGrid.astro';
 import FeaturedListings from '@components/home/FeaturedListings.astro';
 import heroImage from '@assets/images/heroes/maksim-shutov-unsplash-clifs-with-boat.jpg';
+
+const ogImageData = await getImage({ src: heroImage, width: 1200, height: 630, format: 'jpeg' });
 
 const websiteJsonLd = {
   '@context': 'https://schema.org',
@@ -11,14 +14,15 @@ const websiteJsonLd = {
   name: 'Los Gigantes Guide',
   url: 'https://losgigantesguide.com',
   description:
-    'Local tips, honest reviews, and hidden spots for Los Gigantes, Tenerife. Things to do, restaurants, services, accommodation, and dance lessons.',
+    'Local tips, honest reviews, and hidden spots for Los Gigantes, Tenerife. Things to do, restaurants, services, and accommodation.',
   inLanguage: 'en',
 };
 ---
 
 <BaseLayout
   title="Los Gigantes Guide"
-  description="Your local guide to Los Gigantes, Tenerife. Honest recommendations for things to do, restaurants, services, accommodation, and dance lessons."
+  description="Your local guide to Los Gigantes, Tenerife. Honest recommendations for things to do, restaurants, services, and accommodation."
+  ogImage={ogImageData.src}
   jsonLd={websiteJsonLd}
 >
   <Hero image={heroImage} imageAlt="The Los Gigantes cliffs with a boat in the foreground" />
