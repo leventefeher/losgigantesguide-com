@@ -1,22 +1,25 @@
 ---
-title: "Calisthenics"
-description: "Outdoor bodyweight training sessions focused on strength, mobility, and endurance, held in the open air in Alcalá."
+title: Calisthenics
+description: >-
+  Outdoor bodyweight training sessions focused on strength, mobility, and
+  endurance, held in the open air in Alcalá.
 status: open
-address: "Parque de Calisthenics, Alcalá, Guía de Isora, Tenerife"
-phone: "+34 600 000 000"
-tags: ["outdoor", "fitness"]
-coverImage: ./calisthenics.jpg
-coverImageAlt: "Group doing calisthenics exercises outdoors in Alcalá at sunset"
-priceRange: "€"
+address: Parque de Calisthenics, Alcalá, Guía de Isora, Tenerife
+phone: +34 610 23 74 55
+tags:
+  - outdoor
+  - fitness
+coverImage: ../../content/calisthenics/coverImage.jpg
+coverImageAlt: Group doing calisthenics exercises outdoors in Alcalá at sunset
+priceRange: €
 featured: true
 publishedAt: 2026-04-01
 updatedAt: 2026-04-01
-duration: "1 hour"
+duration: 1 hour
 difficulty: easy
 lat: 28.2083
-lng: -16.8390
+lng: -16.839
 ---
-
 A relaxed but focused outdoor calisthenics class set against the coastal backdrop of Alcalá. Just a short bus ride from Los Gigantes, it’s an easy midweek reset with fresh air and a solid workout.
 
 ## What to expect
