@@ -54,15 +54,15 @@ const { tag, entries } = Astro.props;
   noindex={true}
 >
   <div class="max-w-6xl mx-auto px-4 py-12">
-    <p class="text-sm text-atlantic mb-2">
-      <a href="/" class="text-atlantic hover:text-cliff-deep no-underline hover:underline">Home</a>
+    <p class="text-sm text-cliff-deep mb-2">
+      <a href="/" class="text-cliff-deep hover:text-cliff-deep no-underline hover:underline">Home</a>
       {' › '}
       <span>Tags</span>
     </p>
     <h1 class="font-serif font-bold text-cliff-deep mb-2" style="font-size: clamp(1.8rem, 4vw, 2.5rem);">
       {tag}
     </h1>
-    <p class="text-atlantic mb-8">
+    <p class="text-cliff-deep mb-8">
       {entries.length} place{entries.length !== 1 ? 's' : ''} tagged &ldquo;{tag}&rdquo;
     </p>
 

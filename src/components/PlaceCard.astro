@@ -57,7 +57,7 @@ const Heading = `h${headingLevel}` as 'h2' | 'h3' | 'h4';
         <Badge status={status} seasonNote={seasonNote} />
       )}
       {priceRange && (
-        <span class="text-xs text-atlantic font-medium bg-sea-salt px-2 py-0.5 rounded-full border border-border">
+        <span class="text-xs text-cliff-deep font-medium bg-sea-salt px-2 py-0.5 rounded-full border border-border">
           {priceRange}
         </span>
       )}
@@ -71,7 +71,7 @@ const Heading = `h${headingLevel}` as 'h2' | 'h3' | 'h4';
     </Heading>
 
     <!-- Description -->
-    <p class="text-sm text-atlantic leading-relaxed flex-1">{description}</p>
+    <p class="text-sm text-cliff-deep leading-relaxed flex-1">{description}</p>
 
     <!-- Tags -->
     {tags.length > 0 && (
@@ -80,7 +80,7 @@ const Heading = `h${headingLevel}` as 'h2' | 'h3' | 'h4';
           <li>
             <a
               href={`/tags/${tag}/`}
-              class="text-xs text-atlantic no-underline bg-sea-salt border border-border px-2 py-0.5 rounded-full hover:bg-sea-salt-dark transition-colors"
+              class="text-xs text-cliff-deep no-underline bg-sea-salt border border-border px-2 py-0.5 rounded-full hover:bg-sea-salt-dark transition-colors"
             >
               {tag}
             </a>

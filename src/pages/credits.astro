@@ -15,7 +15,7 @@ import credits from "../data/photo-credits.json";
     >
       Photo Credits
     </h1>
-    <p class="text-atlantic mb-10">
+    <p class="text-cliff-deep mb-10">
       All photographs used on this site are licensed under their respective
       terms. Attributions are listed below.
     </p>
@@ -27,7 +27,7 @@ import credits from "../data/photo-credits.json";
             <p class="text-sm text-volcanic font-medium mb-1">
               {credit.description}
             </p>
-            <p class="text-sm text-atlantic">
+            <p class="text-sm text-cliff-deep">
               Photo by{" "}
               <a
                 href={credit.photographerUrl}
@@ -50,6 +50,6 @@ import credits from "../data/photo-credits.json";
       }
     </ul>
 
-    {credits.length === 0 && <p class="text-atlantic">No photo credits yet.</p>}
+    {credits.length === 0 && <p class="text-cliff-deep">No photo credits yet.</p>}
   </div>
 </BaseLayout>

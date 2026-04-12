@@ -25,7 +25,7 @@ const jsonLd = {
 <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
 <nav aria-label="Breadcrumb" class="mb-6">
-  <ol class="flex flex-wrap items-center gap-1 list-none p-0 m-0 text-sm text-atlantic">
+  <ol class="flex flex-wrap items-center gap-1 list-none p-0 m-0 text-sm text-cliff-deep">
     {items.map((item, index) => {
       const isLast = index === items.length - 1;
       return (
@@ -36,7 +36,7 @@ const jsonLd = {
               {item.label}
             </span>
           ) : (
-            <a href={item.href} class="text-atlantic hover:text-cliff-deep no-underline hover:underline">
+            <a href={item.href} class="text-cliff-deep hover:text-cliff-deep no-underline hover:underline">
               {item.label}
             </a>
           )}

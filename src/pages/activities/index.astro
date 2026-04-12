@@ -25,7 +25,7 @@ const allTags = [...new Set(entries.flatMap((e) => e.data.tags))].sort();
     >
       Things to Do in Los Gigantes
     </h1>
-    <p class="text-atlantic text-lg mb-6 max-w-2xl">
+    <p class="text-cliff-deep text-lg mb-6 max-w-2xl">
       Activities worth doing in and around Los Gigantes, Tenerife — from the
       iconic cliffs to quiet walks with no one else around.
     </p>
@@ -51,7 +51,7 @@ const allTags = [...new Set(entries.flatMap((e) => e.data.tags))].sort();
               <li>
                 <button
                   data-tag={tag}
-                  class="tag-btn text-sm text-atlantic bg-sea-salt border border-border px-3 py-1 rounded-full hover:bg-sea-salt-dark transition-colors cursor-pointer"
+                  class="tag-btn text-sm text-cliff-deep bg-sea-salt border border-border px-3 py-1 rounded-full hover:bg-sea-salt-dark transition-colors cursor-pointer"
                   aria-pressed="false"
                 >
                   {tag}
@@ -81,7 +81,7 @@ const allTags = [...new Set(entries.flatMap((e) => e.data.tags))].sort();
       }
     </ul>
 
-    <p id="no-results" class="hidden text-atlantic mt-8">
+    <p id="no-results" class="hidden text-cliff-deep mt-8">
       No activities found for this filter.
     </p>
   </div>
@@ -103,14 +103,14 @@ const allTags = [...new Set(entries.flatMap((e) => e.data.tags))].sort();
           "text-sea-salt",
           "border-cliff-deep",
         );
-        btn.classList.remove("bg-sea-salt", "text-atlantic", "border-border");
+        btn.classList.remove("bg-sea-salt", "text-cliff-deep", "border-border");
       } else {
         btn.classList.remove(
           "bg-cliff-deep",
           "text-sea-salt",
           "border-cliff-deep",
         );
-        btn.classList.add("bg-sea-salt", "text-atlantic", "border-border");
+        btn.classList.add("bg-sea-salt", "text-cliff-deep", "border-border");
       }
     });
 
