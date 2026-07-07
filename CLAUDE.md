@@ -11,7 +11,10 @@ npm run dev         # Local dev server
 ```
 
 Deploy happens automatically on push to `main` via Cloudflare Pages.
-Build command: `npm run build` | Output directory: `dist`
+Build command: `npm run build` | Output directory: `dist/client` (set in `wrangler.jsonc`)
+
+The Keystatic CMS (`/keystatic`) needs the node adapter and only works in local dev
+(`npm run dev`) — the production deploy is the static `dist/client` output only.
 
 ## Brand & Design
 
@@ -67,8 +70,8 @@ address: ""
 phone: ""
 website: ""
 tags: []
-coverImage: ./image.jpg   # optional — must be in src/assets/images/[category]/
-coverImageAlt: ""         # required when coverImage is set
+coverImage: ./image.jpg   # optional — next to the .md file, or Keystatic puts it in src/content/[slug]/
+coverImageAlt: ""         # required when coverImage is set (enforced by schema at build time)
 priceRange: "€€"         # free | € | €€ | €€€
 featured: false
 publishedAt: 2026-04-01
@@ -78,9 +81,15 @@ updatedAt: 2026-04-01
 
 ### Image workflow
 
-- Place images in `src/assets/images/[category]/`
+- Listing cover images live next to their content: either in `src/content/[category]/`
+  (referenced as `coverImage: ./your-image.jpg`) or, when added via Keystatic, in
+  `src/content/[slug]/coverImage.jpg`
+- Site imagery (category cards, heroes) lives in `src/assets/images/categories/` and
+  `src/assets/images/heroes/`
 - Max 2000px wide, under 500KB before commit — Astro handles WebP/AVIF conversion at build time
-- Reference with `coverImage: ./your-image.jpg` in frontmatter
+- Unprocessed originals go in `original-images/` (tracked in git, but never referenced
+  by the build — process and copy into `src/` before use)
+- Add an attribution entry to `src/data/photo-credits.json` for every stock photo
 
 ## Content Rot Prevention
 
@@ -99,11 +108,20 @@ updatedAt: 2026-04-01
 
 1. Connect your GitHub/GitLab repo in the Cloudflare Pages dashboard
 2. Build command: `npm run build`
-3. Output directory: `dist`
+3. Output directory: `dist/client` (also set via `pages_build_output_dir` in `wrangler.jsonc`)
 4. Node version: 22 (set as environment variable `NODE_VERSION=22`)
 5. Enable **build failure email notifications** in Settings → Notifications
 6. Add domain `losgigantesguide.com` under Custom Domains
 
-## WhatsApp contact
+## Contact details
 
-Replace the placeholder `34XXXXXXXXX` in `src/data/site-config.json` and the dance lesson `whatsapp` frontmatter field with the real international number (digits only, no `+`, no spaces).
+- `src/data/site-config.json` holds the public email and address; `phone` is optional —
+  only add it once there's a real number (no placeholders)
+- Services listings support a `whatsapp` frontmatter field: international number,
+  digits only, no `+`, no spaces (used for `wa.me` links)
+
+## Analytics
+
+Google Analytics 4 is consent-gated via `src/components/ConsentBanner.astro` — it only
+loads after the visitor accepts, and the choice is stored in localStorage
+(`lg-analytics-consent`). Don't add tracking that bypasses the banner.

@@ -13,6 +13,7 @@ tags:
   - outdoor
   - group
 coverImage: ../../content/learn-to-dance-bachata-with-baila-canarias/coverImage.jpg
+coverImageAlt: Dancers at an outdoor Baila Canarias bachata group class
 priceRange: €
 featured: true
 publishedAt: 2026-04-11

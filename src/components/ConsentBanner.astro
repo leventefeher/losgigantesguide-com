@@ -1,0 +1,76 @@
+---
+/**
+ * Cookie-consent banner gating Google Analytics.
+ * GA only loads after the visitor explicitly accepts; the choice is
+ * remembered in localStorage so the banner shows once.
+ */
+const GA_ID = 'G-CTQXK0XF4L';
+---
+
+<div
+  id="consent-banner"
+  role="region"
+  aria-label="Cookie consent"
+  hidden
+  class="fixed bottom-0 inset-x-0 z-50 bg-volcanic text-sea-salt px-4 py-4 shadow-lg"
+>
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-center gap-3">
+    <p class="text-sm leading-relaxed flex-1 m-0">
+      We use Google Analytics to understand which guides people find useful. No
+      analytics cookies are set unless you accept.
+    </p>
+    <div class="flex gap-3 flex-shrink-0">
+      <button
+        id="consent-accept"
+        class="bg-sea-salt text-volcanic font-semibold text-sm px-4 py-2 rounded-md cursor-pointer hover:opacity-90 transition-opacity"
+      >
+        Accept analytics
+      </button>
+      <button
+        id="consent-decline"
+        class="bg-transparent text-sea-salt font-semibold text-sm px-4 py-2 rounded-md border border-sea-salt cursor-pointer hover:bg-sea-salt/10 transition-colors"
+      >
+        Decline
+      </button>
+    </div>
+  </div>
+</div>
+
+<script is:inline define:vars={{ GA_ID }}>
+  (function () {
+    var KEY = 'lg-analytics-consent';
+
+    function loadAnalytics() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', GA_ID, { anonymize_ip: true });
+    }
+
+    var choice = null;
+    try { choice = localStorage.getItem(KEY); } catch (e) { /* private mode */ }
+
+    if (choice === 'granted') {
+      loadAnalytics();
+      return;
+    }
+    if (choice === 'denied') return;
+
+    var banner = document.getElementById('consent-banner');
+    banner.hidden = false;
+
+    function decide(value) {
+      try { localStorage.setItem(KEY, value); } catch (e) { /* private mode */ }
+      banner.hidden = true;
+      if (value === 'granted') loadAnalytics();
+    }
+
+    document.getElementById('consent-accept').addEventListener('click', function () { decide('granted'); });
+    document.getElementById('consent-decline').addEventListener('click', function () { decide('denied'); });
+  })();
+</script>

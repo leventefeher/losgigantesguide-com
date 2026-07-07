@@ -4,7 +4,6 @@ description: "Year-round boat trips to spot pilot whales, bottlenose dolphins, a
 status: open
 address: "Puerto de Los Gigantes Marina, Santiago del Teide, Tenerife"
 phone: "+34 922 860 000"
-website: "https://example.com/whale-watching"
 tags: ["outdoor", "family-friendly", "water", "wildlife"]
 coverImage: ./whale-watching.jpg
 coverImageAlt: "Pilot whales surfacing near the Los Gigantes cliffs"

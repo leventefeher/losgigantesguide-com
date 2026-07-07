@@ -1,10 +1,6 @@
 ---
-import { getCollection, render } from 'astro:content';
-import { Image, getImage } from 'astro:assets';
-import BaseLayout from '@layouts/BaseLayout.astro';
-import Breadcrumb from '@components/Breadcrumb.astro';
-import QuickInfo from '@components/QuickInfo.astro';
-import RelatedListings from '@components/RelatedListings.astro';
+import { getCollection } from 'astro:content';
+import ListingDetail from '@components/ListingDetail.astro';
 import Button from '@components/ui/Button.astro';
 
 export async function getStaticPaths() {
@@ -16,16 +12,9 @@ export async function getStaticPaths() {
 }
 
 const { entry, allEntries } = Astro.props;
-const {
-  title, description, coverImage, coverImageAlt, address, phone, website,
-  status, seasonNote, priceRange, tags, whatsapp,
-} = entry.data;
+const { title, description, address, phone, whatsapp } = entry.data;
 
-const { Content } = await render(entry);
 const canonicalUrl = new URL(`/services/${entry.id}/`, Astro.site).href;
-const ogImageData = coverImage
-  ? await getImage({ src: coverImage, width: 1200, height: 630, format: 'jpeg' })
-  : null;
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -38,86 +27,18 @@ const jsonLd = {
 };
 ---
 
-<BaseLayout
-  title={title}
-  description={description}
-  canonicalUrl={canonicalUrl}
-  ogImage={ogImageData?.src}
-  ogType="article"
+<ListingDetail
+  entry={entry}
+  allEntries={allEntries}
+  categorySlug="services"
+  categoryLabel="Services"
   jsonLd={jsonLd}
 >
-  <div class="max-w-4xl mx-auto px-4 py-10">
-    <Breadcrumb
-      items={[
-        { label: 'Home', href: '/' },
-        { label: 'Services', href: '/services/' },
-        { label: title },
-      ]}
-    />
-
-    <h1 class="font-serif font-bold text-cliff-deep mb-6" style="font-size: clamp(1.8rem, 4vw, 2.5rem);">
-      {title}
-    </h1>
-
-    {coverImage && (
-      <Image
-        src={coverImage}
-        alt={coverImageAlt ?? ''}
-        width={900}
-        height={500}
-        loading="eager"
-        decoding="sync"
-        formats={['avif', 'webp']}
-        class="w-full rounded-xl mb-8 object-cover"
-        style="max-height: 500px;"
-      />
-    )}
-
-    {whatsapp && (
-      <div class="mb-6">
-        <Button href={`https://wa.me/${whatsapp}`} variant="primary">
-          WhatsApp for a quote
-        </Button>
-      </div>
-    )}
-
-    <div class="grid md:grid-cols-[1fr_280px] gap-8 items-start">
-      <div class="prose max-w-none text-cliff-deep">
-        <Content />
-      </div>
-      <div class="flex flex-col gap-4">
-        <QuickInfo
-          status={status}
-          seasonNote={seasonNote}
-          address={address}
-          phone={phone}
-          whatsapp={whatsapp}
-          website={website}
-          priceRange={priceRange}
-        />
-      </div>
+  {whatsapp && (
+    <div class="mb-6" slot="header-cta">
+      <Button href={`https://wa.me/${whatsapp}`} variant="primary">
+        WhatsApp for a quote
+      </Button>
     </div>
-
-    {tags.length > 0 && (
-      <div class="mt-8 pt-6 border-t border-border">
-        <p class="text-xs font-semibold uppercase tracking-wider text-cliff-deep mb-3">Tagged:</p>
-        <ul class="flex flex-wrap gap-2 list-none p-0 m-0" role="list">
-          {tags.map((tag) => (
-            <li>
-              <a href={`/tags/${tag}/`} class="text-sm text-cliff-deep no-underline bg-sea-salt border border-border px-3 py-1 rounded-full hover:bg-sea-salt-dark">
-                {tag}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    )}
-
-    <RelatedListings
-      currentId={entry.id}
-      currentTags={tags}
-      entries={allEntries}
-      categorySlug="services"
-    />
-  </div>
-</BaseLayout>
+  )}
+</ListingDetail>

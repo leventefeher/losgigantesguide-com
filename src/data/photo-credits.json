@@ -70,5 +70,13 @@
     "photographerUrl": "https://unsplash.com/@maxberg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
     "source": "Unsplash",
     "sourceUrl": "https://unsplash.com/photos/brown-and-green-mountain-beside-body-of-water-under-white-clouds-and-blue-sky-during-daytime-Z4C6Uwq1f8k?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+  },
+  {
+    "id": "paddle-boards-silhouette",
+    "description": "Silhouette of people riding on paddle boards",
+    "photographer": "Krzysztof Kowalik",
+    "photographerUrl": "https://unsplash.com/@kowalikus?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+    "source": "Unsplash",
+    "sourceUrl": "https://unsplash.com/photos/silhouette-photo-of-people-riding-on-paddle-boards-6QFR9t4pDIM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
   }
 ]

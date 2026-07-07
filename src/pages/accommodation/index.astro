@@ -1,52 +1,25 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseLayout from '@layouts/BaseLayout.astro';
-import PlaceCard from '@components/PlaceCard.astro';
+import { getCollection } from "astro:content";
+import { getImage } from "astro:assets";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CategoryIndex from "@components/CategoryIndex.astro";
+import categoryImage from "@assets/images/categories/stay.jpg";
 
-const allEntries = await getCollection('accommodation');
-
-const active = allEntries.filter((e) => e.data.status !== 'closed');
-const closed = allEntries.filter((e) => e.data.status === 'closed');
-const entries = [...active, ...closed];
-
-const allTags = [...new Set(entries.flatMap((e) => e.data.tags))].sort();
+const entries = await getCollection("accommodation");
+const ogImageData = await getImage({ src: categoryImage, width: 1200, height: 630, format: "jpeg" });
 ---
 
 <BaseLayout
   title="Where to Stay in Los Gigantes, Tenerife"
   description="Accommodation in Los Gigantes, Tenerife. Self-catering apartments and places worth staying for a holiday or longer."
+  ogImage={ogImageData.src}
 >
-  <div class="max-w-6xl mx-auto px-4 py-12">
-    <h1 class="font-serif font-bold text-cliff-deep mb-3" style="font-size: clamp(1.8rem, 4vw, 2.5rem);">
-      Where to Stay in Los Gigantes
-    </h1>
-    <p class="text-cliff-deep text-lg mb-8 max-w-2xl">
-      Accommodation options in Los Gigantes that are worth recommending — with honest notes on what works for short visits versus longer stays.
-    </p>
-
-    {allTags.length > 0 && (
-      <nav aria-label="Filter by tag" class="mb-8">
-        <ul class="flex flex-wrap gap-2 list-none p-0 m-0" role="list">
-          {allTags.map((tag) => (
-            <li>
-              <a
-                href={`/tags/${tag}/`}
-                class="text-sm text-cliff-deep no-underline bg-sea-salt border border-border px-3 py-1 rounded-full hover:bg-sea-salt-dark transition-colors"
-              >
-                {tag}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    )}
-
-    <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 list-none p-0 m-0" role="list">
-      {entries.map((entry) => (
-        <li>
-          <PlaceCard entry={entry} categorySlug="accommodation" headingLevel={2} />
-        </li>
-      ))}
-    </ul>
-  </div>
+  <CategoryIndex
+    heading="Where to Stay in Los Gigantes"
+    intro="Accommodation options in Los Gigantes that are worth recommending — with honest notes on what works for short visits versus longer stays."
+    categorySlug="accommodation"
+    entries={entries}
+    emptyMessage="Accommodation picks are on their way — places get stayed in or inspected before they're listed. Check back soon."
+    noResultsMessage="No places found for this filter."
+  />
 </BaseLayout>

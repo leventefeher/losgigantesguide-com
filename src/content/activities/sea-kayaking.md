@@ -11,6 +11,7 @@ tags:
   - water
   - adventure
   - guided
+coverImage: ./sea-kayaking.jpg
 coverImageAlt: Kayakers paddling through a sea cave beneath the Los Gigantes cliffs
 priceRange: €€
 featured: false

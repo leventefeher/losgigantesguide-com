@@ -1,13 +1,18 @@
 ---
+import { getImage } from 'astro:assets';
 import BaseLayout from '@layouts/BaseLayout.astro';
+import heroImage from '@assets/images/heroes/maksim-shutov-unsplash-clifs-with-boat.jpg';
+
+const ogImageData = await getImage({ src: heroImage, width: 1200, height: 630, format: 'jpeg' });
 ---
 
 <BaseLayout
   title="Staying Longer in Los Gigantes?"
   description="A local guide to getting more out of Los Gigantes, Tenerife — beyond the obvious spots, for visitors staying a week or more."
+  ogImage={ogImageData.src}
 >
   <div class="max-w-3xl mx-auto px-4 py-12">
-    <p class="text-sky-water text-sm font-semibold tracking-widest uppercase mb-4">Extended stay guide</p>
+    <p class="text-cliff-deep text-sm font-semibold tracking-widest uppercase mb-4">Extended stay guide</p>
     <h1 class="font-serif font-bold text-cliff-deep mb-4" style="font-size: clamp(1.8rem, 4vw, 2.5rem);">
       Staying for longer?
     </h1>

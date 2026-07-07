@@ -1,13 +1,18 @@
 ---
+import { getImage } from 'astro:assets';
 import BaseLayout from '@layouts/BaseLayout.astro';
+import heroImage from '@assets/images/heroes/maksim-shutov-unsplash-clifs-with-boat.jpg';
+
+const ogImageData = await getImage({ src: heroImage, width: 1200, height: 630, format: 'jpeg' });
 ---
 
 <BaseLayout
   title="Just on a Day Trip to Los Gigantes?"
   description="Making the most of a day in Los Gigantes, Tenerife — the cliffs, boat trips, where to eat, and what to skip."
+  ogImage={ogImageData.src}
 >
   <div class="max-w-3xl mx-auto px-4 py-12">
-    <p class="text-sky-water text-sm font-semibold tracking-widest uppercase mb-4">Day trip guide</p>
+    <p class="text-cliff-deep text-sm font-semibold tracking-widest uppercase mb-4">Day trip guide</p>
     <h1 class="font-serif font-bold text-cliff-deep mb-4" style="font-size: clamp(1.8rem, 4vw, 2.5rem);">
       Just on a day trip?
     </h1>
@@ -40,7 +45,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
       <section>
         <h2 class="font-serif font-bold text-cliff-deep text-xl mb-2">Walk the coastal path</h2>
         <p class="text-cliff-deep leading-relaxed">
-          There's a flat coastal path that runs south from the town along the water. It's easy going and gives you good views without any effort. Takes about 30–45 minutes each way and gets you away from the crowds quickly. The <a href="/activities/cliff-walk/" class="text-cliff-deep underline hover:opacity-70">cliff walk</a> is the longer version if you want more.
+          There's a flat coastal path that runs south from the town along the water. It's easy going and gives you good views without any effort. Takes about 30–45 minutes each way and gets you away from the crowds quickly.
         </p>
       </section>
 
