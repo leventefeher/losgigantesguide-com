@@ -1,18 +1,17 @@
 ---
-title: Sea Kayaking the Cliffs
+title: Sea Kayaking & Paddleboarding
 description: >-
-  Paddle along the beach and beneath the 600-metre volcanic cliffs on a guided
-  kayak tour. No experience needed.
+  Paddle beneath the 600-metre cliffs by kayak or SUP — rent and go out on your
+  own, or join a guided tour. No experience needed.
 status: seasonal
-seasonNote: Best April–October; winter swells can suspend tours
+seasonNote: Best April–October; winter swells can make it choppy
 address: Playa de Los Guios, Los Gigantes
 tags:
   - outdoor
   - water
   - adventure
-  - guided
-coverImage: ./sea-kayaking.jpg
-coverImageAlt: Kayakers paddling through a sea cave beneath the Los Gigantes cliffs
+coverImage: ../../content/sea-kayaking/coverImage.jpg
+coverImageAlt: People on SUPs out on the sea
 priceRange: €€
 featured: false
 publishedAt: 2026-04-01
@@ -21,38 +20,27 @@ difficulty: easy
 lat: 28.2452
 lng: -16.8425
 ---
-## Kayaking & Stand-Up Paddleboarding in Los Gigantes
+## Out on the Water
 
 There are few better ways to understand why these cliffs are called The Giants than from the water. On land you get a view — on a kayak or SUP, you get a sense of scale that genuinely stops you in your tracks. The walls rise 600 metres straight out of the Atlantic, and when you're sitting at sea level looking up, it's one of those moments that reminds you why you came here.
 
-The water around Los Gigantes is exceptionally calm compared to much of Tenerife's coastline, which makes it ideal for paddling even if you've never done it before. The cliffs shelter the bay from the prevailing winds, and the Atlantic here is clear, warm, and genuinely turquoise on a sunny day.
+The water around Los Gigantes is exceptionally calm compared to much of Tenerife's coastline, which makes it ideal for paddling even if you've never done it before. The cliffs shelter the bay from the prevailing winds, and the Atlantic here is clear, warm, and genuinely turquoise on a sunny day. Paddle out from Playa de Los Guios and within a few minutes you're beneath the cliff face, often with turtles surfacing nearby and the odd cove clear enough to see the volcanic rock twenty feet below.
 
-## What to Expect
+A kayak is the easy, stable choice — double kayaks especially, which are more forgiving and more fun when you're trying to take photos. SUP is a slightly different feel: slower, more meditative, and best on a glassy morning when there's no wind. If you fall off — and you might — the water's warm and the board doesn't go anywhere.
 
-Most guided kayak tours run for around two to two and a half hours, departing from Dock 6 at the marina. You'll paddle along the cliff face toward Barranco Seco, stopping in a sheltered cove for a swim in water so clear you can see the volcanic rock twenty feet below. Double kayaks are the norm for beginners — stable, easy to manage, and honestly more fun when you're trying to take photos. A support boat follows the group throughout, so there's no pressure to keep up a pace.
+## Rent and Go, or Take a Guide
 
-SUP is a slightly different experience — slower, more meditative, and better suited to calm mornings when the water is like glass. Rental is available independently if you'd rather explore at your own pace without a guide.
+You don't need a tour to do this. Renting your own kayak or SUP for an hour or two is cheap, simple, and lets you go at your own pace — out to the cliffs, into a quiet cove, back for a coffee. It's the nicer option if you've paddled before or just want the freedom to stop where you like. **Nautilos SUP** on the marina is the go-to for this: good kit, a locker for your things, and rates around €20–25 an hour. Popular with people staying longer who go out several times.
 
-## The Operators
-
-**Teno Activo** — the most established operator in Los Gigantes, based at Dock 6 in the marina. They run both guided kayak and snorkel tours as well as a combined kayak and whale watching trip that makes for a genuinely full day on the water. Multi-lingual guides, good safety record, and they include a soft drink at the end. Around €35–60 per person depending on the trip.
-
-**Nautilos SUP** — the go-to for independent SUP and kayak rental if you want to go at your own pace. No guided tour, just good equipment, a locker for your belongings, and the freedom to paddle where you like. Prices are very reasonable — around €20–25 per hour. Popular with people staying longer who want to go out several times.
-
-**El Cardón NaturExperience** — slightly smaller operation but well reviewed. Their kayak and snorkel tour follows a similar route to Teno Activo and includes a digital photo book at the end, which is a nice touch. Good option if Teno Activo is fully booked.
+If you'd rather have someone show you the best spots and keep an eye on things, a guided tour is worth it — particularly your first time, or if you want to combine paddling with snorkelling. **Teno Activo** (Dock 6, the most established operator here) runs guided kayak and snorkel trips with multi-lingual guides and a support boat, roughly €35–60 depending on the trip. **El Cardón NaturExperience** is a smaller, well-reviewed alternative on a similar route, and a good fallback if Teno Activo is full.
 
 ## Practical Tips
 
-- **Go in the morning.** The water is calmest before midday and the light on the cliffs is better for photos. Afternoon winds can pick up.
-- **Book Teno Activo in advance** — they cap groups at ten people and fill up quickly in summer.
+- **Mornings are calmest.** The water is flattest before midday, and afternoon winds can pick up and make SUP in particular much harder work — it's the safe choice if you're new to it or nervous about conditions.
+- **But late afternoon is when the cliffs come alive.** They face west, so as the sun drops the whole rock face turns gold and then deep orange, and the light on the water is genuinely worth timing a paddle for. If the wind's light, a late-day kayak into the sunset is the better experience — just keep an eye on the conditions and don't push it if it's choppy.
 - **Parking is a genuine headache.** Leave more time than you think you need. The marina car park costs around €2 an hour — worth paying rather than circling the streets.
-- **You don't need to be fit.** The pace is always slow and the guides stop regularly. If you fall off the SUP — and you might — the water is warm and the board doesn't go anywhere.
-- **Bring sun cream and a cap**, not a towel. Everything else is provided.
+- **You don't need to be fit.** The pace is entirely yours and the bay is sheltered. Take it slow and stop whenever you like.
+- **Bring sun cream and a cap**, not a towel. Rentals and tours provide the rest.
+- **Check the conditions the night before.** If the wind's up, skip the SUP — a calm morning is a completely different, better experience.
 
-## What I'd Skip
-
-The kayak tours booked through the big online platforms like GetYourGuide often go to the same operators but at a higher price with a booking fee on top. Go direct — Teno Activo and Nautilos both have their own booking pages and it's cheaper and simpler.
-
-I'd also skip SUP if the wind has picked up — it's significantly harder and less enjoyable than a calm morning session. Check the conditions the night before and if in doubt go for the guided kayak instead, where the support boat takes the stress out of it.
-
-*A note on accuracy: prices and availability change — always check directly with the operator before booking.*
+*A note on accuracy: prices and availability change — always check directly with the operator before booking or renting.*
