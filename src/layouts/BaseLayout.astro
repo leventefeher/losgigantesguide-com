@@ -3,7 +3,8 @@ import '../styles/global.css';
 import SEO from '@components/SEO.astro';
 import Header from '@components/navigation/Header.astro';
 import Footer from '@components/navigation/Footer.astro';
-import ConsentBanner from '@components/ConsentBanner.astro';
+
+const GA_ID = 'G-CTQXK0XF4L';
 
 interface Props {
   title: string;
@@ -47,6 +48,14 @@ const {
         set:html={JSON.stringify(Array.isArray(jsonLd) ? jsonLd : [jsonLd])}
       />
     )}
+    <!-- Google Analytics 4 -->
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+    <script is:inline define:vars={{ GA_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', GA_ID, { anonymize_ip: true });
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -55,6 +64,5 @@ const {
       <slot />
     </main>
     <Footer />
-    <ConsentBanner />
   </body>
 </html>

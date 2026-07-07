@@ -8,7 +8,15 @@ Built with Astro 6.x, Tailwind CSS v4, hosted on Cloudflare Pages.
 ```bash
 npm run build       # Builds to dist/
 npm run dev         # Local dev server
+npm run dev:fresh   # Dev server with caches cleared — use after editing images in Keystatic
+npm run clean       # Clears .astro + node_modules/.astro caches
 ```
+
+**Keystatic image updates not showing in dev?** Astro caches the content collection
+(`.astro/`) and optimised images (`node_modules/.astro/`), and its watcher doesn't
+reliably invalidate them when Keystatic writes a new image + rewrites frontmatter.
+Stop the dev server and run `npm run dev:fresh`, then hard-refresh the browser
+(`Cmd+Shift+R`). This is an upstream Astro dev-server limitation, not a config bug.
 
 Deploy happens automatically on push to `main` via Cloudflare Pages.
 Build command: `npm run build` | Output directory: `dist/client` (set in `wrangler.jsonc`)
@@ -122,6 +130,9 @@ updatedAt: 2026-04-01
 
 ## Analytics
 
-Google Analytics 4 is consent-gated via `src/components/ConsentBanner.astro` — it only
-loads after the visitor accepts, and the choice is stored in localStorage
-(`lg-analytics-consent`). Don't add tracking that bypasses the banner.
+Google Analytics 4 (`G-CTQXK0XF4L`) loads on every page from `src/layouts/BaseLayout.astro`,
+with no consent banner (deliberate product decision). `anonymize_ip` is set. Note this is a
+GDPR trade-off for an EU/Spain-targeted site — GA sets cookies and sends data to the US, so
+if consent ever becomes a requirement, either add a banner back or switch to cookieless
+analytics (e.g. Cloudflare Web Analytics). The CSP in `public/_headers` already allowlists
+`googletagmanager.com` and `*.google-analytics.com`.
