@@ -78,5 +78,13 @@
     "photographerUrl": "https://unsplash.com/@kowalikus?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
     "source": "Unsplash",
     "sourceUrl": "https://unsplash.com/photos/silhouette-photo-of-people-riding-on-paddle-boards-6QFR9t4pDIM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+  },
+  {
+    "id": "coastal-resort-pool",
+    "description": "Aerial view of a coastal resort with swimming pool and ocean",
+    "photographer": "Kamil Molendys",
+    "photographerUrl": "https://unsplash.com/@ilkamo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+    "source": "Unsplash",
+    "sourceUrl": "https://unsplash.com/photos/aerial-view-of-coastal-resort-with-swimming-pool-and-ocean-iDExdhdYxHM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
   }
 ]
