@@ -9,6 +9,8 @@ tags:
   - couples
   - families
   - portraits
+coverImage: ./holiday-photo-tenerife.jpg
+coverImageAlt: Couple photographed on the Los Gigantes cliffs by Holiday Photo Tenerife
 serviceType: Photographer
 priceRange: "€€"
 featured: false

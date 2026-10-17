@@ -8,6 +8,8 @@ tags:
   - portraits
   - couples
   - studio
+coverImage: ./levente-white.jpg
+coverImageAlt: Portrait session on the Tenerife coast by Levente White
 serviceType: Photographer
 featured: false
 publishedAt: 2026-10-17

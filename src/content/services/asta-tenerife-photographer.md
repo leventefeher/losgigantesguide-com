@@ -9,6 +9,8 @@ tags:
   - family
   - maternity
   - couples
+coverImage: ./asta-tenerife-photographer.jpg
+coverImageAlt: Couple photo session in Tenerife by photographer Asta
 serviceType: Photographer
 featured: false
 publishedAt: 2026-10-17

@@ -86,5 +86,29 @@
     "photographerUrl": "https://unsplash.com/@ilkamo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
     "source": "Unsplash",
     "sourceUrl": "https://unsplash.com/photos/aerial-view-of-coastal-resort-with-swimming-pool-and-ocean-iDExdhdYxHM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+  },
+  {
+    "id": "levente-white-cover",
+    "description": "Portrait session on the Tenerife coast",
+    "photographer": "Levente White",
+    "photographerUrl": "https://leventewhite.com",
+    "source": "Levente White",
+    "sourceUrl": "https://leventewhite.com"
+  },
+  {
+    "id": "holiday-photo-tenerife-cover",
+    "description": "Couple photographed on the Los Gigantes cliffs",
+    "photographer": "Holiday Photo Tenerife",
+    "photographerUrl": "https://photo-tenerife.com",
+    "source": "Holiday Photo Tenerife",
+    "sourceUrl": "https://photo-tenerife.com"
+  },
+  {
+    "id": "asta-tenerife-cover",
+    "description": "Couple photo session in Tenerife",
+    "photographer": "Asta",
+    "photographerUrl": "https://www.instagram.com/your_photographer.asta",
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/your_photographer.asta"
   }
 ]
