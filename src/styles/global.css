@@ -147,6 +147,65 @@
     margin-top: 0.25rem;
   }
 
+  .prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .prose th,
+  .prose td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .prose th {
+    font-weight: 600;
+    background-color: var(--color-sea-salt-dark);
+    border-bottom-color: rgba(30, 107, 138, 0.3);
+  }
+
+  /* Short label/value columns stay on one line; the last column takes the wrapping */
+  .prose td:not(:last-child) {
+    white-space: nowrap;
+  }
+
+  .prose td:first-child {
+    font-weight: 500;
+  }
+
+  @media (max-width: 480px) {
+    .prose th,
+    .prose td {
+      padding: 0.5rem 0.4rem;
+    }
+  }
+
+  /* Embedded Google Maps — inserted by src/plugins/rehype-location-maps.mjs */
+  .prose .location-map {
+    margin: 1rem 0 0;
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background-color: #fff;
+  }
+
+  .prose .location-map iframe {
+    display: block;
+    width: 100%;
+    height: 16rem;
+    border: 0;
+  }
+
+  .prose .location-map figcaption {
+    padding: 0.6rem 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
   /* Status badge colours */
   .badge-open {
     background-color: #d1fae5;

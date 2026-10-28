@@ -47,6 +47,16 @@ const activities = defineCollection({
         difficulty: z.enum(['easy', 'moderate', 'hard']).optional(),
         lat: z.number().optional(),
         lng: z.number().optional(),
+        // Embedded Google Maps, placed under the section whose heading starts with `name`
+        // (see src/plugins/rehype-location-maps.mjs). `query` is what Google Maps searches for;
+        // `embed` is a link from Google Maps → Share → Embed a map, and wins over `query`.
+        locations: z
+          .array(
+            z
+              .object({ name: z.string(), query: z.string().optional(), embed: z.string().optional() })
+              .refine((loc) => loc.query || loc.embed, { message: 'Each location needs a query or an embed link' }),
+          )
+          .default([]),
       })
       .superRefine(requireAltWithImage),
 });

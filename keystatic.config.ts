@@ -78,6 +78,30 @@ export default config({
         }),
         lat: fields.ignored(),
         lng: fields.ignored(),
+        locations: fields.array(
+          fields.object({
+            name: fields.text({
+              label: 'Name',
+              description: 'The map goes under the heading that starts with this name; unmatched ones go at the end.',
+              multiline: false,
+            }),
+            query: fields.text({
+              label: 'Google Maps search',
+              description: 'What to search for, e.g. "Mirador de Archipenque, Tenerife".',
+              multiline: false,
+            }),
+            embed: fields.text({
+              label: 'Google Maps embed (optional)',
+              description: 'Paste from Google Maps → Share → Embed a map, for an exact pin. Used instead of the search.',
+              multiline: false,
+            }),
+          }),
+          {
+            label: 'Map locations',
+            description: 'Each one gets an embedded Google Map in the listing text.',
+            itemLabel: (props) => props.fields.name.value,
+          },
+        ),
         content: contentField,
       },
     }),

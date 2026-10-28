@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import keystatic from '@keystatic/astro';
 import node from '@astrojs/node';
+import rehypeLocationMaps from './src/plugins/rehype-location-maps.mjs';
 
 export default defineConfig({
   site: 'https://losgigantesguide.com',
@@ -12,6 +13,9 @@ export default defineConfig({
   adapter: node({ mode: 'standalone' }),
   build: {
     format: 'directory',
+  },
+  markdown: {
+    rehypePlugins: [rehypeLocationMaps],
   },
   integrations: [
     react(),
