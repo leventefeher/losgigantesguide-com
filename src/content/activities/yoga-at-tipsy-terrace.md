@@ -1,8 +1,8 @@
 ---
 title: Tipsy Yoga!
 description: >-
-  Open-air yoga classes at Tipsy Terrace — suitable for all levels, run by the
-  fabolous Dee
+  Open-air yoga classes at Tipsy Terrace, suitable for all levels and run by the
+  fabulous Dee
 status: open
 tags:
   - fitness

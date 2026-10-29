@@ -1,5 +1,5 @@
 ---
-title: Asta — Tenerife Photographer
+title: Asta, Tenerife Photographer
 description: Wedding, maternity, family, couple and personal photo sessions in Tenerife, booked through Instagram.
 status: open
 website: https://www.instagram.com/your_photographer.asta
@@ -28,6 +28,6 @@ Asta is a Tenerife-based photographer, originally from Ukraine, covering the ful
 
 ## Practical tips
 
-- Booking and questions go through Instagram direct message — there's no separate website
+- Booking and questions go through Instagram direct message. There's no separate website
 - Scroll her feed first to get a feel for the style and the locations she tends to use
 - Her posts are in Ukrainian and English

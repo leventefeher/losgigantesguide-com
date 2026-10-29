@@ -1,6 +1,6 @@
 ---
 title: Holiday Photo Tenerife
-description: Couple, family and solo photo sessions across Tenerife with Bálint — golden-hour shoots at Los Gigantes and other island locations.
+description: Couple, family and solo photo sessions across Tenerife with Bálint, including golden-hour shoots at Los Gigantes and other island locations.
 status: open
 website: https://photo-tenerife.com
 whatsapp: "34666745566"
@@ -21,9 +21,9 @@ Bálint has been photographing couples and families in Tenerife since 2018, and 
 
 ## Sessions
 
-- **Couples** — golden-hour shoots, good for honeymoons and anniversaries
-- **Families** — relaxed and playful, aimed at capturing everyone as they actually are
-- **Solo travellers** — a portrait session planned entirely around you
+- **Couples:** golden-hour shoots, good for honeymoons and anniversaries
+- **Families:** relaxed and playful, aimed at capturing everyone as they actually are
+- **Solo travellers:** a portrait session planned entirely around you
 
 ## Locations
 
@@ -33,9 +33,9 @@ He shoots across the island, including right here on the Los Gigantes cliffs, pl
 
 Pricing is published up front:
 
-- **Essential** — €220: 1 hour, one location, 20 edited photos
-- **Experience** — €350: 2–3 hours, two locations, 40 edited photos
-- **Deluxe** — €490: 4–6 hours, multiple locations, 60 edited photos
+- **Essential, €220:** 1 hour, one location, 20 edited photos
+- **Experience, €350:** 2–3 hours, two locations, 40 edited photos
+- **Deluxe, €490:** 4–6 hours, multiple locations, 60 edited photos
 
 ## Practical tips
 

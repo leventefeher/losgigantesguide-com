@@ -26,15 +26,15 @@ A relaxed but focused outdoor calisthenics class set against the coastal backdro
 
 Sessions run every Thursday at 6pm, usually timed to catch the cooler evening air and, on clear days, a bit of golden hour. Expect a mix of push-ups, pull-ups, core work, and mobility drills, all scalable to your level.
 
-The group is typically small and informal — a mix of locals and regulars — so there’s plenty of room for guidance and adjustments. No equipment needed beyond what’s already in the park (bars, benches, open space).
+The group is typically small and informal, a mix of locals and regulars, so there’s plenty of room for guidance and adjustments. No equipment needed beyond what’s already in the park (bars, benches, open space).
 
 ## Practical tips
 
 - Arrive 5–10 minutes early to warm up and meet the group
-- Bring water — there’s little shade during warmer months
+- Bring water, as there’s little shade during warmer months
 - Many are bare foot, but trainers are also okay
 - Bus connections from Los Gigantes are straightforward (around 10–15 minutes)
 
 ## What I'd skip
 
-Overthinking your fitness level before going. The session is adaptable, and beginners won’t be out of place — just show up and scale as needed.
+Overthinking your fitness level before going. The session is adaptable, and beginners won’t be out of place. Just show up and scale as needed.

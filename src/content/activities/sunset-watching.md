@@ -1,6 +1,6 @@
 ---
 title: "Sunset Watching"
-description: "Where to watch the sun go down over the Atlantic and La Gomera — from a cliff-top lookout, a black-sand beach or the bar at the marina. Free."
+description: "Where to watch the sun go down over the Atlantic and La Gomera, from a cliff-top lookout to a black-sand beach or a marina bar. Free."
 status: open
 address: "Los Gigantes & Puerto de Santiago, Santiago del Teide, Tenerife"
 tags:
@@ -33,7 +33,7 @@ locations:
     query: "Mirador de Cherfe, Santiago del Teide, Tenerife"
 ---
 
-Los Gigantes faces due west, so every clear evening ends with the sun dropping into the Atlantic, usually with La Gomera sitting on the horizon. You don't need to book anything or drive anywhere special — but where you stand changes what you see.
+Los Gigantes faces due west, so every clear evening ends with the sun dropping into the Atlantic, usually with La Gomera sitting on the horizon. You don't need to book anything or drive anywhere special, but where you stand changes what you see.
 
 ## When the sun sets
 
@@ -55,7 +55,7 @@ From November to February the sun disappears behind La Gomera's mountains a few 
 
 ### Mirador de Archipenque
 
-The roadside lookout on the TF-454 between Los Gigantes and Puerto de Santiago. It looks straight along the cliff wall with the town and marina below — the classic postcard view. There's a small café and free roadside parking, but it's limited and fills up before sunset in high season — get there early or be ready to try somewhere else.
+The roadside lookout on the TF-454 between Los Gigantes and Puerto de Santiago. It looks straight along the cliff wall with the town and marina below: the classic postcard view. There's a small café and free roadside parking, but it's limited and fills up before sunset in high season, so get there early or be ready to try somewhere else.
 
 ### Playa de Los Guios and the marina
 
@@ -71,17 +71,17 @@ The bigger black-sand beach a 10-minute drive (or 30-minute walk) south. It's mo
 
 ### Oasis Sunset
 
-On weekend evenings the Oasis pool complex above the marina runs "Oasis Sunset" from 6pm to 10pm — €10 including a welcome drink, with music and the cliffs in front of you. See [A Pool Day at Oasis](/activities/pool-day-at-oasis/) for details.
+On weekend evenings the Oasis pool complex above the marina runs "Oasis Sunset" from 6pm to 10pm. It's €10 including a welcome drink, with music and the cliffs in front of you. See [A Pool Day at Oasis](/activities/pool-day-at-oasis/) for details.
 
 ### Mirador de Cherfe (if you have a car)
 
-High up on the TF-436 road between Santiago del Teide and Masca, about 25 minutes' drive. You're looking down over the whole coast, Los Gigantes included, with La Gomera beyond — and on some evenings you're above a layer of cloud with the sun going down into it. It's noticeably colder up there, so bring a jumper. Parking is limited, and the drive back down is narrow and twisty in the dark — only go if you're comfortable with mountain roads.
+High up on the TF-436 road between Santiago del Teide and Masca, about 25 minutes' drive. You're looking down over the whole coast, Los Gigantes included, with La Gomera beyond. On some evenings you're above a layer of cloud with the sun going down into it. It's noticeably colder up there, so bring a jumper. Parking is limited, and the drive back down is narrow and twisty in the dark, so only go if you're comfortable with mountain roads.
 
 ## Practical tips
 
 - **Arrive 20–30 minutes early.** The best colour in the sky is often 10–15 minutes *after* the sun has gone, so don't leave the moment it disappears.
 - **Check the horizon, not just the forecast.** A bank of cloud sitting low over the sea will swallow the sun even on a "sunny" day. Calima (Saharan dust haze) makes for a hazy, deep-red sun rather than a sharp one.
-- **Bring a torch or phone light** if you're walking back from the lookout — some stretches of road have no pavement.
+- **Bring a torch or phone light** if you're walking back from the lookout. Some stretches of road have no pavement.
 - **Clocks change** at the end of March and October, so sunset jumps by an hour overnight.
 
 ## What I'd skip

@@ -1,5 +1,5 @@
 ---
-title: Levente White — Portrait Photographer
+title: Levente White, Portrait Photographer
 description: Portrait, couple and intimate photo sessions in Tenerife, in the studio or out on the island, with full posing guidance.
 status: open
 website: https://leventewhite.com
@@ -21,20 +21,20 @@ Levente is a portrait photographer based in Tenerife, shooting individuals and c
 
 Three kinds of session:
 
-- **Portraits** — just you
-- **Intimate** — relaxed, feel-good sessions in your own skin
-- **Couples** — the two of you, as you are
+- **Portraits:** just you
+- **Intimate:** relaxed, feel-good sessions in your own skin
+- **Couples:** the two of you, as you are
 
 You pick favourites from a private online gallery afterwards, and each chosen photo is edited by hand with skin kept looking natural.
 
 ## How a session works
 
-- **Before** — you plan it together: where, when, and what to wear, so there are no surprises on the day
-- **During** — Levente guides you through posing: how to stand, where to put your hands, where to look
-- **After** — you choose from the gallery, then get the finished edits
+- **Before:** you plan it together: where, when, and what to wear, so there are no surprises on the day
+- **During:** Levente guides you through posing: how to stand, where to put your hands, where to look
+- **After:** you choose from the gallery, then get the finished edits
 
 ## Practical tips
 
-- Studio sessions and outdoor locations are both on offer — coast, volcanic rock, or up in the mountains
+- Studio sessions and outdoor locations are both on offer: coast, volcanic rock, or up in the mountains
 - Late-afternoon light on the island is the sweet spot for outdoor shoots, so expect to book around then
 - Get in touch through the website to talk through what you're after before booking

@@ -11,15 +11,15 @@ const ogImageData = await getImage({ src: categoryImage, width: 1200, height: 63
 
 <BaseLayout
   title="Things to Do in Los Gigantes"
-  description="The best activities in Los Gigantes, Tenerife — whale watching, sea kayaking, coastal walks and more. Honest local recommendations."
+  description="The best activities in Los Gigantes, Tenerife: whale watching, sea kayaking, coastal walks and more. Honest local recommendations."
   ogImage={ogImageData.src}
 >
   <CategoryIndex
     heading="Things to Do in Los Gigantes"
-    intro="Activities worth doing in and around Los Gigantes, Tenerife — from the iconic cliffs to quiet walks with no one else around."
+    intro="Activities worth doing in and around Los Gigantes, Tenerife, from the iconic cliffs to quiet walks with no one else around."
     categorySlug="activities"
     entries={entries}
-    emptyMessage="No activities listed yet — check back soon."
+    emptyMessage="No activities listed yet. Check back soon."
     noResultsMessage="No activities found for this filter."
   />
 </BaseLayout>

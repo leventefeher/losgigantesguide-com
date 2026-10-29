@@ -21,13 +21,13 @@ Los Gigantes sits on one of the richest marine corridors in the Atlantic. Reside
 
 ## What to expect
 
-Trips depart from the marina most mornings at 10am and afternoons at 2pm. The smaller operators (6–12 people) are worth the extra few euros — you spend more time watching and less time queuing at the boarding gangway.
+Trips depart from the marina most mornings at 10am and afternoons at 2pm. The smaller operators (6–12 people) are worth the extra few euros: you spend more time watching and less time queuing at the boarding gangway.
 
 Bottlenose dolphins show up reliably in the outer bay. Common dolphins are seasonal (spring–autumn). Loggerhead turtles surface to breathe every 20 minutes or so once you're past the 100m depth line.
 
 ## Practical tips
 
-- Book the morning trip if the swell is running — afternoons can be choppier
+- Book the morning trip if the swell is running, as afternoons can be choppier
 - Bring a light layer even in summer: spray and shade cool things down fast
 - Children under 4 are rarely permitted on the larger catamarans
 
