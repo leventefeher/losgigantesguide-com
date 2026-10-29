@@ -8,6 +8,8 @@ tags:
   - couples
   - family-friendly
   - photography
+coverImage: ./sunset-watching.jpg
+coverImageAlt: "The sun setting over the sea beside an island, with a person silhouetted on a jetty"
 priceRange: free
 featured: false
 publishedAt: 2026-10-28
