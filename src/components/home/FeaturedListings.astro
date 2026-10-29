@@ -8,28 +8,28 @@ import PlaceCard from '@components/PlaceCard.astro';
 
 type AnyEntry =
   | CollectionEntry<'activities'>
-  | CollectionEntry<'restaurants'>
+  | CollectionEntry<'food'>
   | CollectionEntry<'services'>
   | CollectionEntry<'accommodation'>;
 
 const categorySlugMap: Record<string, string> = {
   activities: 'activities',
-  restaurants: 'restaurants',
+  food: 'food',
   services: 'services',
   accommodation: 'accommodation',
 };
 
-const [activities, restaurants, services, accommodation] =
+const [activities, food, services, accommodation] =
   await Promise.all([
     getCollection('activities'),
-    getCollection('restaurants'),
+    getCollection('food'),
     getCollection('services'),
     getCollection('accommodation'),
   ]);
 
 const allEntries: AnyEntry[] = [
   ...activities,
-  ...restaurants,
+  ...food,
   ...services,
   ...accommodation,
 ];

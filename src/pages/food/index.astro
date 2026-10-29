@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+import { getImage } from "astro:assets";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CategoryIndex from "@components/CategoryIndex.astro";
+import categoryImage from "@assets/images/categories/food.jpg";
+
+const entries = await getCollection("food");
+const ogImageData = await getImage({ src: categoryImage, width: 1200, height: 630, format: "jpeg" });
+---
+
+<BaseLayout
+  title="Food & Drink in Los Gigantes"
+  description="Where to eat and drink in Los Gigantes, Tenerife. Restaurants, cafés and bars, with honest reviews of the places worth visiting."
+  ogImage={ogImageData.src}
+>
+  <CategoryIndex
+    heading="Food & Drink in Los Gigantes"
+    intro="Where to eat and drink in Los Gigantes, from the marina fish restaurants to morning coffee spots and small bars tucked away in the old quarter."
+    categorySlug="food"
+    entries={entries}
+    emptyMessage="Food and drink reviews are on their way. Each place gets visited before it's listed. Check back soon."
+    noResultsMessage="No places found for this filter."
+  />
+</BaseLayout>

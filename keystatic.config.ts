@@ -1,4 +1,5 @@
 import { config, fields, collection } from '@keystatic/core';
+import { FOOD_TYPES, FOOD_TYPE_KEYS } from './src/data/food-types';
 
 const contentField = fields.markdoc({
   label: 'Content',
@@ -106,14 +107,19 @@ export default config({
       },
     }),
 
-    restaurants: collection({
-      label: 'Restaurants',
+    food: collection({
+      label: 'Food & Drink',
       slugField: 'title',
-      path: 'src/content/restaurants/*',
+      path: 'src/content/food/*',
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
         ...baseFields,
+        type: fields.select({
+          label: 'Type',
+          options: FOOD_TYPE_KEYS.map((key) => ({ label: FOOD_TYPES[key].label, value: key })),
+          defaultValue: 'restaurant',
+        }),
         cuisine: fields.array(fields.text({ label: 'Cuisine type' }), {
           label: 'Cuisine',
           itemLabel: (props) => props.value,

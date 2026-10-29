@@ -1,9 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
 import ListingDetail from '@components/ListingDetail.astro';
+import { FOOD_TYPES } from '../../data/food-types';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('restaurants');
+  const entries = await getCollection('food');
   return entries.map((entry) => ({
     params: { id: entry.id },
     props: { entry, allEntries: entries },
@@ -11,13 +12,13 @@ export async function getStaticPaths() {
 }
 
 const { entry, allEntries } = Astro.props;
-const { title, description, address, phone, priceRange, cuisine, openingHours } = entry.data;
+const { title, description, address, phone, priceRange, type, cuisine, openingHours } = entry.data;
 
-const canonicalUrl = new URL(`/restaurants/${entry.id}/`, Astro.site).href;
+const canonicalUrl = new URL(`/food/${entry.id}/`, Astro.site).href;
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Restaurant',
+  '@type': FOOD_TYPES[type].schemaType,
   name: title,
   description,
   url: canonicalUrl,
@@ -32,7 +33,7 @@ const jsonLd = {
 <ListingDetail
   entry={entry}
   allEntries={allEntries}
-  categorySlug="restaurants"
-  categoryLabel="Restaurants"
+  categorySlug="food"
+  categoryLabel="Food & Drink"
   jsonLd={jsonLd}
 />

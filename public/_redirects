@@ -4,3 +4,8 @@
 # 404 handling is done via wrangler.jsonc not_found_handling: "404-page"
 # Add 301 redirects here if URLs are restructured after go-live, e.g.:
 # /old-path/  /new-path/  301
+
+# Restaurants became Food & Drink (2026-10-29)
+/restaurants    /food/    301
+/restaurants/   /food/    301
+/restaurants/*  /food/:splat  301

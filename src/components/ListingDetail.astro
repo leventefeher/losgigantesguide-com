@@ -5,11 +5,12 @@ import { Image, getImage } from 'astro:assets';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/Breadcrumb.astro';
 import QuickInfo from '@components/QuickInfo.astro';
+import { FOOD_TYPES } from '../data/food-types';
 import RelatedListings from '@components/RelatedListings.astro';
 
 type Entry =
   | CollectionEntry<'activities'>
-  | CollectionEntry<'restaurants'>
+  | CollectionEntry<'food'>
   | CollectionEntry<'services'>
   | CollectionEntry<'accommodation'>;
 
@@ -28,6 +29,7 @@ const { title, description, coverImage, coverImageAlt, address, phone, website, 
 // Collection-specific extras QuickInfo knows how to render
 const openingHours = 'openingHours' in entry.data ? entry.data.openingHours : undefined;
 const whatsapp = 'whatsapp' in entry.data ? entry.data.whatsapp : undefined;
+const typeLabel = 'type' in entry.data ? FOOD_TYPES[entry.data.type].label : undefined;
 
 const { Content } = await render(entry);
 
@@ -93,6 +95,7 @@ const ogImageData = coverImage
           whatsapp={whatsapp}
           website={website}
           openingHours={openingHours}
+          typeLabel={typeLabel}
           priceRange={priceRange}
         />
       </div>

@@ -10,6 +10,8 @@ interface Props {
   website?: string;
   openingHours?: string;
   priceRange?: string;
+  /** Food & Drink only: "Restaurant", "Café" or "Bar" */
+  typeLabel?: string;
 }
 
 const {
@@ -21,10 +23,11 @@ const {
   website,
   openingHours,
   priceRange,
+  typeLabel,
 } = Astro.props;
 
 const hasAnyInfo =
-  address || phone || whatsapp || website || openingHours || priceRange;
+  address || phone || whatsapp || website || openingHours || priceRange || typeLabel;
 ---
 
 {hasAnyInfo && (
@@ -34,6 +37,11 @@ const hasAnyInfo =
   >
     <div class="flex items-center gap-2 mb-4">
       <Badge status={status} seasonNote={seasonNote} />
+      {typeLabel && (
+        <span class="text-sm text-cliff-deep font-semibold bg-sea-salt-dark px-2 py-0.5 rounded-full border border-border">
+          {typeLabel}
+        </span>
+      )}
       {priceRange && (
         <span class="text-sm text-cliff-deep font-medium bg-sea-salt px-2 py-0.5 rounded-full border border-border">
           {priceRange}

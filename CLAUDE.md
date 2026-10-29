@@ -107,7 +107,7 @@ updatedAt: 2026-04-01
 
 ## Architecture Notes
 
-- `src/content.config.ts` — Zod schemas for all 5 collections; `getBaseSchema(image)` factory pattern required for `image()` helper
+- `src/content.config.ts` — Zod schemas for all 4 content collections (activities, food, services, accommodation) plus site config; `getBaseSchema(image)` factory pattern required for `image()` helper
 - `src/layouts/BaseLayout.astro` — wraps all pages; accepts `jsonLd` prop for structured data
 - Tag pages (`/tags/[tag]/`) are `noindex` in v1 — to enable indexing: remove `noindex` from `src/pages/tags/[tag].astro` AND add to sitemap filter AND add curated `<h2>` + intro paragraph
 - Sitemap excludes `/tags/` pages — configured in `astro.config.mjs`

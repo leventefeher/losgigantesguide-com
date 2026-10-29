@@ -1,6 +1,7 @@
 import { defineCollection, z } from 'astro:content';
 import { glob, file } from 'astro/loaders';
 import type { ImageFunction } from 'astro';
+import { FOOD_TYPE_KEYS } from './data/food-types';
 
 /**
  * Base schema factory — accepts the image() helper which is only available
@@ -61,11 +62,13 @@ const activities = defineCollection({
       .superRefine(requireAltWithImage),
 });
 
-const restaurants = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/restaurants' }),
+// Food & Drink: restaurants, cafés and bars
+const food = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/food' }),
   schema: ({ image }) =>
     getBaseSchema(image)
       .extend({
+        type: z.enum(FOOD_TYPE_KEYS).default('restaurant'),
         cuisine: z.array(z.string()).default([]),
         openingHours: z.string().optional(),
       })
@@ -107,7 +110,7 @@ const siteConfig = defineCollection({
 
 export const collections = {
   activities,
-  restaurants,
+  food,
   services,
   accommodation,
   siteConfig,

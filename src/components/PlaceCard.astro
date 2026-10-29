@@ -2,10 +2,11 @@
 import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 import Badge from '@components/ui/Badge.astro';
+import { FOOD_TYPES } from '../data/food-types';
 
 type Entry =
   | CollectionEntry<'activities'>
-  | CollectionEntry<'restaurants'>
+  | CollectionEntry<'food'>
   | CollectionEntry<'services'>
   | CollectionEntry<'accommodation'>;
 
@@ -18,6 +19,8 @@ interface Props {
 const { entry, categorySlug, headingLevel = 2 } = Astro.props;
 const { title, description, status, seasonNote, coverImage, coverImageAlt, priceRange, tags } =
   entry.data;
+// Food & Drink only: Restaurant / Café / Bar
+const typeLabel = 'type' in entry.data ? FOOD_TYPES[entry.data.type].label : undefined;
 
 const detailHref = `/${categorySlug}/${entry.id}/`;
 const Heading = `h${headingLevel}` as 'h2' | 'h3' | 'h4';
@@ -55,6 +58,11 @@ const Heading = `h${headingLevel}` as 'h2' | 'h3' | 'h4';
     <div class="flex items-center gap-2 flex-wrap">
       {status !== 'open' && (
         <Badge status={status} seasonNote={seasonNote} />
+      )}
+      {typeLabel && (
+        <span class="text-xs text-cliff-deep font-semibold bg-sea-salt-dark px-2 py-0.5 rounded-full border border-border">
+          {typeLabel}
+        </span>
       )}
       {priceRange && (
         <span class="text-xs text-cliff-deep font-medium bg-sea-salt px-2 py-0.5 rounded-full border border-border">

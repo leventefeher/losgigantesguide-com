@@ -1,13 +1,13 @@
 ---
 import { Image } from 'astro:assets';
 import imgThingsToDo  from '@assets/images/categories/things-to-do.jpg';
-import imgRestaurants from '@assets/images/categories/restaurants.jpg';
+import imgFood        from '@assets/images/categories/food.jpg';
 import imgServices    from '@assets/images/categories/services.jpg';
 import imgStay        from '@assets/images/categories/stay.jpg';
 
 const categories = [
   { label: 'Things to do',  href: '/activities/',    image: imgThingsToDo,  description: 'Whale watching, kayaking, boat trips, and more.' },
-  { label: 'Restaurants',   href: '/restaurants/',    image: imgRestaurants, description: 'Fresh fish, local tapas, and the places the locals eat.' },
+  { label: 'Food & Drink',  href: '/food/',           image: imgFood,        description: 'Fresh fish, local tapas, morning coffee, and the places the locals go.' },
   { label: 'Services',      href: '/services/',       image: imgServices,    description: 'Reliable tradespeople, photographers, and local pros.' },
   { label: 'Stay',          href: '/accommodation/',  image: imgStay,        description: 'Self-catering apartments and accommodation that works for longer.' },
 ];
