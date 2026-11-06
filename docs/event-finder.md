@@ -103,6 +103,7 @@ price: "Free"              # only if the source says; otherwise leave the field 
 organiser: "Ayuntamiento de Santiago del Teide"
 website: ""                # organiser's own page if there is one
 sourceUrl: "https://..."   # the page you found it on (required)
+registrationUrl: "https://..."  # sign-up or ticket page, only if there is one (see below)
 draft: true                # always true
 tags: []
 publishedAt: 2026-11-05    # today
@@ -116,6 +117,11 @@ Rules:
 - **Only use facts the source states.** Leave a field out rather than guess. If the
   year, date or time is unclear, still write the draft but add a line at the top of the
   body starting `CHECK:` that says what's uncertain.
+- `registrationUrl`: if the source mentions signing up, registering (inscripciones) or
+  buying tickets (entradas), add the link to that page. Sources often shorten these links
+  (`https://www.canaryrun.com/…/`); if so, look for the event on that platform and only use
+  a URL you've opened and confirmed is this event. Otherwise leave the field out and say
+  in the body how to sign up.
 - Translate Spanish into plain British English. Keep proper names in Spanish.
 - Voice: a knowledgeable local friend. Specific and practical (parking, what to bring,
   if it's in Spanish only). No hype words ("amazing", "stunning", "hidden gem", "unmissable").

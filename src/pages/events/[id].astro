@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import { Image, getImage } from 'astro:assets';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/Breadcrumb.astro';
+import Button from '@components/ui/Button.astro';
 import SubmitEventPanel from '@components/SubmitEventPanel.astro';
 import { formatDateRange, formatTimeRange, isoEnd, isoStart, isPast } from '../../data/events';
 
@@ -12,13 +13,18 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { title, description, coverImage, coverImageAlt, status, venue, address, price, organiser, website, tags } =
-  entry.data;
+const {
+  title, description, coverImage, coverImageAlt, status, venue, address, price, organiser, website,
+  sourceUrl, registrationUrl, tags,
+} = entry.data;
 
 const { Content } = await render(entry);
 const past = isPast(entry);
 const time = formatTimeRange(entry);
 const mapQuery = address ?? venue;
+// No point offering sign-up for an event that's over or off
+const showRegistration = registrationUrl && !past && status !== 'cancelled';
+const sourceHost = sourceUrl && new URL(sourceUrl).hostname.replace(/^www\./, '');
 
 const canonicalUrl = new URL(`/events/${entry.id}/`, Astro.site).href;
 const ogImageData = coverImage
@@ -128,10 +134,19 @@ const rows = [
             </div>
           ))}
         </dl>
-        {(website || mapQuery) && (
+        {showRegistration && (
+          <Button href={registrationUrl} class="w-full text-center mt-5">Sign up or book</Button>
+        )}
+        {(website || mapQuery || sourceUrl) && (
           <ul class="flex flex-col gap-2 list-none p-0 mt-4 mb-0 pt-4 border-t border-border">
             {website && (
               <li><a href={website} target="_blank" rel="noopener">Organiser's website</a></li>
+            )}
+            {sourceUrl && (
+              <li>
+                <a href={sourceUrl} target="_blank" rel="noopener">Original announcement</a>
+                <span class="block text-sm">{sourceHost}</span>
+              </li>
             )}
             {mapQuery && (
               <li>

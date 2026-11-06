@@ -119,6 +119,8 @@ const events = defineCollection({
         website: z.string().url().optional(),
         // Where we found it, so a scraped event can be rechecked later
         sourceUrl: z.string().url().optional(),
+        // Where to sign up or buy tickets, if anywhere
+        registrationUrl: z.string().url().optional(),
         // Drafts (e.g. from the weekly event-finding task) build nowhere until set to false
         draft: z.boolean().default(false),
         tags: z.array(z.string()).default([]),

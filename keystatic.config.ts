@@ -187,6 +187,7 @@ export default config({
         organiser: fields.text({ label: 'Organiser', multiline: false }),
         website: baseFields.website,
         sourceUrl: fields.url({ label: 'Source', description: 'Where the event was found, for rechecking later.' }),
+        registrationUrl: fields.url({ label: 'Sign-up / tickets link', description: 'Where people register or buy tickets, if anywhere.' }),
         draft: fields.checkbox({ label: 'Draft (hidden from the site)', defaultValue: false }),
         tags: baseFields.tags,
         coverImage: baseFields.coverImage,
