@@ -1,0 +1,173 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image, getImage } from 'astro:assets';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/Breadcrumb.astro';
+import SubmitEventPanel from '@components/SubmitEventPanel.astro';
+import { formatDateRange, formatTimeRange, isoEnd, isoStart, isPast } from '../../data/events';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('events', (e) => !e.data.draft);
+  return entries.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { title, description, coverImage, coverImageAlt, status, venue, address, price, organiser, website, tags } =
+  entry.data;
+
+const { Content } = await render(entry);
+const past = isPast(entry);
+const time = formatTimeRange(entry);
+const mapQuery = address ?? venue;
+
+const canonicalUrl = new URL(`/events/${entry.id}/`, Astro.site).href;
+const ogImageData = coverImage
+  ? await getImage({ src: coverImage, width: 1200, height: 630, format: 'jpeg' })
+  : null;
+
+const eventStatus = {
+  scheduled: 'https://schema.org/EventScheduled',
+  cancelled: 'https://schema.org/EventCancelled',
+  postponed: 'https://schema.org/EventPostponed',
+}[status];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: title,
+  description,
+  url: canonicalUrl,
+  startDate: isoStart(entry),
+  ...(isoEnd(entry) ? { endDate: isoEnd(entry) } : {}),
+  eventStatus,
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: {
+    '@type': 'Place',
+    name: venue ?? 'Los Gigantes',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: address ?? venue,
+      addressLocality: 'Santiago del Teide',
+      addressRegion: 'Tenerife',
+      addressCountry: 'ES',
+    },
+  },
+  ...(organiser ? { organizer: { '@type': 'Organization', name: organiser, ...(website ? { url: website } : {}) } } : {}),
+  ...(ogImageData ? { image: new URL(ogImageData.src, Astro.site).href } : {}),
+};
+
+const rows = [
+  { label: 'When', value: formatDateRange(entry, 'long') },
+  { label: 'Time', value: time },
+  { label: 'Where', value: venue },
+  { label: 'Address', value: address },
+  { label: 'Price', value: price },
+  { label: 'Organiser', value: organiser },
+].filter((row) => row.value);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  ogImage={ogImageData?.src}
+  ogType="article"
+  jsonLd={jsonLd}
+>
+  <div class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumb
+      items={[
+        { label: 'Home', href: '/' },
+        { label: "What's on", href: '/events/' },
+        { label: title },
+      ]}
+    />
+
+    {(past || status !== 'scheduled') && (
+      <p
+        class="bg-sea-salt-dark border border-border rounded-lg px-4 py-3 text-cliff-deep font-semibold mb-6"
+        role="status"
+      >
+        {status === 'cancelled'
+          ? 'This event has been cancelled.'
+          : status === 'postponed'
+            ? 'This event has been postponed. Check with the organiser for the new date.'
+            : 'This event has already taken place.'}
+      </p>
+    )}
+
+    <h1 class="font-serif font-bold text-cliff-deep mb-6" style="font-size: clamp(1.8rem, 4vw, 2.5rem);">
+      {title}
+    </h1>
+
+    {coverImage && (
+      <Image
+        src={coverImage}
+        alt={coverImageAlt ?? ''}
+        width={900}
+        height={500}
+        loading="eager"
+        decoding="sync"
+        formats={['avif', 'webp']}
+        class="w-full rounded-xl mb-8 object-cover"
+        style="max-height: 500px;"
+      />
+    )}
+
+    <div class="grid md:grid-cols-[1fr_280px] gap-8 items-start">
+      <div class="prose max-w-none text-cliff-deep">
+        <Content />
+      </div>
+
+      <aside class="bg-white border border-border rounded-xl p-5" aria-label="Event details">
+        <dl class="flex flex-col gap-3 m-0">
+          {rows.map(({ label, value }) => (
+            <div>
+              <dt class="text-xs font-semibold uppercase tracking-wider text-cliff-deep">{label}</dt>
+              <dd class="m-0 text-cliff-deep">{value}</dd>
+            </div>
+          ))}
+        </dl>
+        {(website || mapQuery) && (
+          <ul class="flex flex-col gap-2 list-none p-0 mt-4 mb-0 pt-4 border-t border-border">
+            {website && (
+              <li><a href={website} target="_blank" rel="noopener">Organiser's website</a></li>
+            )}
+            {mapQuery && (
+              <li>
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${mapQuery}, Tenerife`)}`}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Open in Google Maps
+                </a>
+              </li>
+            )}
+          </ul>
+        )}
+      </aside>
+    </div>
+
+    {tags.length > 0 && (
+      <div class="mt-8 pt-6 border-t border-border">
+        <p class="text-xs font-semibold uppercase tracking-wider text-cliff-deep mb-3">Tagged:</p>
+        <ul class="flex flex-wrap gap-2 list-none p-0 m-0" role="list">
+          {tags.map((tag) => (
+            <li>
+              <span class="text-sm text-cliff-deep bg-sea-salt border border-border px-3 py-1 rounded-full">{tag}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    <div class="mt-10">
+      <SubmitEventPanel />
+    </div>
+
+    <p class="mt-8">
+      <a href="/events/">See everything that's on</a>
+    </p>
+  </div>
+</BaseLayout>

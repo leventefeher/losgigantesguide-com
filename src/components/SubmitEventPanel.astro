@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import Button from '@components/ui/Button.astro';
+
+const configs = await getCollection('siteConfig');
+const email = configs[0]?.data.email;
+
+const subject = encodeURIComponent('Event for Los Gigantes Guide');
+const body = encodeURIComponent(
+  'Event name:\nDate and time:\nVenue:\nPrice:\nWebsite or contact:\nA few lines about it:\n',
+);
+---
+
+{email && (
+  <aside class="bg-sea-salt-dark border border-border rounded-xl p-6">
+    <h2 class="font-serif font-bold text-cliff-deep text-xl mb-2">Running an event?</h2>
+    <p class="text-cliff-deep text-base mb-4">
+      If it's in or near Los Gigantes and open to visitors, email us the name, date, time, venue
+      and price, and we'll add it for free. Music nights, markets, fiestas, classes and charity
+      events are all welcome.
+    </p>
+    <Button href={`mailto:${email}?subject=${subject}&body=${body}`}>Email us your event</Button>
+    <p class="text-sm text-cliff-deep mt-3 mb-0">{email}</p>
+  </aside>
+)}

@@ -97,6 +97,43 @@ const accommodation = defineCollection({
       .superRefine(requireAltWithImage),
 });
 
+// Dated events. Own schema rather than the listing base: events have dates and a
+// scheduled/cancelled state instead of open/seasonal/closed.
+const events = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/events' }),
+  schema: ({ image }) =>
+    z
+      .object({
+        title: z.string(),
+        description: z.string().max(160),
+        // Date only; times go in startTime/endTime (local Canary time, "HH:MM")
+        startDate: z.coerce.date(),
+        endDate: z.coerce.date().optional(),
+        startTime: z.string().regex(/^\d{2}:\d{2}$/).optional(),
+        endTime: z.string().regex(/^\d{2}:\d{2}$/).optional(),
+        status: z.enum(['scheduled', 'cancelled', 'postponed']).default('scheduled'),
+        venue: z.string().optional(),
+        address: z.string().optional(),
+        price: z.string().optional(), // free text: "Free", "€10", "€5 kids / €10 adults"
+        organiser: z.string().optional(),
+        website: z.string().url().optional(),
+        // Where we found it, so a scraped event can be rechecked later
+        sourceUrl: z.string().url().optional(),
+        // Drafts (e.g. from the weekly event-finding task) build nowhere until set to false
+        draft: z.boolean().default(false),
+        tags: z.array(z.string()).default([]),
+        coverImage: image().optional(),
+        coverImageAlt: z.string().optional(),
+        publishedAt: z.coerce.date(),
+        updatedAt: z.coerce.date().optional(),
+      })
+      .refine((data) => !data.endDate || data.endDate >= data.startDate, {
+        message: 'endDate must be on or after startDate',
+        path: ['endDate'],
+      })
+      .superRefine(requireAltWithImage),
+});
+
 const siteConfig = defineCollection({
   loader: file('./src/data/site-config.json'),
   schema: z.object({
@@ -113,5 +150,6 @@ export const collections = {
   food,
   services,
   accommodation,
+  events,
   siteConfig,
 };

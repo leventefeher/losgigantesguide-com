@@ -1,0 +1,53 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDateRange, formatTimeRange, lastDay } from '../data/events';
+
+interface Props {
+  event: CollectionEntry<'events'>;
+  headingLevel?: 2 | 3;
+}
+
+const { event, headingLevel = 3 } = Astro.props;
+const { title, description, startDate, venue, price, status } = event.data;
+
+const href = `/events/${event.id}/`;
+const Heading = `h${headingLevel}` as 'h2' | 'h3';
+const day = startDate.getUTCDate();
+const month = startDate.toLocaleString('en-GB', { month: 'short', timeZone: 'UTC' });
+const time = formatTimeRange(event);
+---
+
+<article
+  data-event-ends={lastDay(event)}
+  class:list={[
+    'bg-white border border-border rounded-xl p-5 flex gap-5 items-start',
+    status === 'cancelled' && 'opacity-60',
+  ]}
+>
+  <!-- Calendar date block -->
+  <div
+    class="flex-shrink-0 w-16 text-center rounded-lg bg-cliff-deep text-sea-salt py-2 leading-tight"
+    aria-hidden="true"
+  >
+    <span class="block text-xs font-semibold uppercase tracking-wider">{month}</span>
+    <span class="block font-serif font-bold text-2xl">{day}</span>
+  </div>
+
+  <div class="flex flex-col gap-1.5 min-w-0">
+    {status !== 'scheduled' && (
+      <span class="self-start text-xs font-semibold uppercase tracking-wider text-cliff-deep">
+        {status === 'cancelled' ? 'Cancelled' : 'Postponed'}
+      </span>
+    )}
+    <Heading class="font-serif font-bold text-cliff-deep text-xl leading-snug">
+      <a href={href} class="no-underline hover:underline underline-offset-2">{title}</a>
+    </Heading>
+    <p class="text-sm font-medium text-cliff-deep m-0">
+      {formatDateRange(event)}
+      {time && <> · {time}</>}
+      {venue && <> · {venue}</>}
+      {price && <> · {price}</>}
+    </p>
+    <p class="text-sm text-cliff-deep leading-relaxed m-0">{description}</p>
+  </div>
+</article>

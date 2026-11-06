@@ -1,0 +1,79 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import EventCard from '@components/EventCard.astro';
+import SubmitEventPanel from '@components/SubmitEventPanel.astro';
+import { isPast, sortByStart } from '../../data/events';
+
+const all = await getCollection('events', (e) => !e.data.draft);
+const upcoming = all.filter((e) => !isPast(e)).sort(sortByStart);
+// Most recent first, and only a handful: old events are of little use
+const past = all.filter(isPast).sort(sortByStart).reverse().slice(0, 6);
+
+// Group upcoming events under month headings
+const monthFormat = new Intl.DateTimeFormat('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+const byMonth = Map.groupBy(upcoming, (e) => monthFormat.format(e.data.startDate));
+---
+
+<BaseLayout
+  title="What's On in Los Gigantes"
+  description="Upcoming events in Los Gigantes, Puerto de Santiago and Alcalá, Tenerife: live music, markets, fiestas and local get-togethers, with dates, times and prices."
+>
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <h1 class="font-serif font-bold text-cliff-deep mb-3" style="font-size: clamp(1.8rem, 4vw, 2.5rem);">
+      What's On in Los Gigantes
+    </h1>
+    <p class="text-cliff-deep text-lg mb-10 max-w-2xl">
+      Live music, markets, fiestas and other things happening in Los Gigantes, Puerto de Santiago,
+      Alcalá and nearby. Times and prices change, so check with the organiser before you set off.
+    </p>
+
+    <div data-upcoming>
+      {[...byMonth].map(([month, events]) => (
+        <section class="mb-10" data-month>
+          <h2 class="font-serif font-bold text-cliff-deep text-2xl mb-4">{month}</h2>
+          <ul class="flex flex-col gap-4 list-none p-0 m-0" role="list">
+            {events.map((event) => (
+              <li><EventCard event={event} /></li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+
+    <p
+      data-no-upcoming
+      class:list={['text-cliff-deep bg-white border border-border rounded-xl px-5 py-6 mb-10', upcoming.length > 0 && 'hidden']}
+    >
+      Nothing listed for the coming weeks yet. Check back soon, or tell us about something we've missed.
+    </p>
+
+    <SubmitEventPanel />
+
+    {past.length > 0 && (
+      <section class="mt-12">
+        <h2 class="font-serif font-bold text-cliff-deep text-2xl mb-4">Recent events</h2>
+        <ul class="flex flex-col gap-4 list-none p-0 m-0 opacity-75" role="list">
+          {past.map((event) => (
+            <li><EventCard event={event} /></li>
+          ))}
+        </ul>
+      </section>
+    )}
+  </div>
+</BaseLayout>
+
+<script>
+  // The site only rebuilds on push, so hide events that have ended since the last build.
+  const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Atlantic/Canary' }).format(new Date());
+  document.querySelectorAll<HTMLElement>('[data-upcoming] [data-event-ends]').forEach((card) => {
+    if ((card.dataset.eventEnds ?? '') < today) card.closest('li')!.hidden = true;
+  });
+  let anyVisible = false;
+  document.querySelectorAll<HTMLElement>('[data-month]').forEach((section) => {
+    const visible = section.querySelector('li:not([hidden])');
+    section.hidden = !visible;
+    if (visible) anyVisible = true;
+  });
+  document.querySelector('[data-no-upcoming]')?.classList.toggle('hidden', anyVisible);
+</script>

@@ -99,6 +99,21 @@ updatedAt: 2026-04-01
   by the build — process and copy into `src/` before use)
 - Add an attribution entry to `src/data/photo-credits.json` for every stock photo
 
+### Events
+
+Events live in `src/content/events/` (also editable in Keystatic) with their own schema:
+`startDate` (required), optional `endDate`, `startTime`/`endTime` as `"HH:MM"` local time,
+`status: scheduled | cancelled | postponed`, `venue`, `price` (free text), `organiser`,
+`sourceUrl` (where the event was found). `/events/` lists upcoming events by month plus the
+6 most recent past ones; a small script hides events that ended since the last build.
+Past events keep their page with a "has already taken place" banner.
+
+Events with `draft: true` are left out of the build entirely. A weekly scheduled task in the
+desktop app (Mondays 08:00, "Los Gigantes Guide: find local events") follows
+`docs/event-finder.md` to draft new events from the council's calendar (read through its
+public Google Calendar feed, since santiagodelteide.es blocks bots) and sites that allow crawling. Review the drafts,
+then set `draft: false` to publish.
+
 ## Content Rot Prevention
 
 - Set `status: closed` for businesses that have shut — keeps the listing visible but clearly marked
