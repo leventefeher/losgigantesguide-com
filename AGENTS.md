@@ -1,0 +1,154 @@
+# Los Gigantes Guide — Project Brief
+
+This is a static website for **losgigantesguide.com**, a local guide to Los Gigantes, Tenerife.
+Built with Astro 6.x, Tailwind CSS v4, hosted on Cloudflare Pages.
+
+## Deploy
+
+```bash
+npm run build       # Builds to dist/
+npm run dev         # Local dev server
+npm run dev:fresh   # Dev server with caches cleared — use after editing images in Keystatic
+npm run clean       # Clears .astro + node_modules/.astro caches
+```
+
+**Keystatic image updates not showing in dev?** Astro caches the content collection
+(`.astro/`) and optimised images (`node_modules/.astro/`), and its watcher doesn't
+reliably invalidate them when Keystatic writes a new image + rewrites frontmatter.
+Stop the dev server and run `npm run dev:fresh`, then hard-refresh the browser
+(`Cmd+Shift+R`). This is an upstream Astro dev-server limitation, not a config bug.
+
+Deploy happens automatically on push to `main` via Cloudflare Pages.
+Build command: `npm run build` | Output directory: `dist/client` (set in `wrangler.jsonc`)
+
+The Keystatic CMS (`/keystatic`) needs the node adapter and only works in local dev
+(`npm run dev`) — the production deploy is the static `dist/client` output only.
+
+## Brand & Design
+
+### Colour roles
+
+| Variable | Hex | Use |
+|---|---|---|
+| `--color-cliff-deep` | `#1A6B8A` | Primary, headers, hero bg, body text (~5.3:1 on sea-salt) |
+| `--color-atlantic` | `#2E8FAA` | Large-text UI elements (nav, category labels ≥18px bold) only — NOT normal body text (3.7:1 insufficient) |
+| `--color-sky-water` | `#7DD4E8` | Accent on dark/volcanic backgrounds ONLY — BANNED as text on light backgrounds (2.1:1 fails WCAG AA) |
+| `--color-sunset-coral` | `#C85A2A` | CTAs, dance lessons |
+| `--color-golden-hour` | `#E8A830` | Warm highlights |
+| `--color-sea-salt` | `#FDF8F0` | Page background |
+| `--color-volcanic` | `#2A5C70` | Nav bar background |
+
+### Typography
+
+- Base font size: **18px** (not 16px) — senior readability
+- Headings: `Playfair Display` (self-hosted via `@fontsource/playfair-display`)
+- Body: `Inter` (self-hosted via `@fontsource/inter`)
+- No Google Fonts CDN — fonts served from `'self'` (GDPR compliant)
+
+### Contrast decisions
+
+- Body text uses `--cliff-deep` on `--sea-salt` (~5.3:1) ✓ WCAG AA
+- `--atlantic` passes AA Large (3.7:1) for nav items ≥18px bold
+- `--sky-water` fails AA on light backgrounds — decorative/dark-bg only
+
+## Voice & Tone
+
+Be the knowledgeable local friend:
+- **Do**: Give specific details (times, prices, what to order), mention what to skip, be honest about limitations
+- **Don't**: Use hype words ("amazing", "stunning", "hidden gem"), be vague, write like a travel brochure
+
+## Content
+
+### Adding a new listing
+
+1. Copy a sample `.md` file from the relevant `src/content/[category]/` folder
+2. Fill in all frontmatter fields (required: `title`, `description` ≤160 chars, `publishedAt`, `status`)
+3. Write the body in Markdown — be specific, honest, useful
+4. Commit and push — Cloudflare Pages rebuilds automatically
+
+### Content frontmatter (all categories)
+
+```yaml
+---
+title: ""
+description: ""           # max 160 characters
+status: open              # open | seasonal | closed
+seasonNote: ""            # optional — shown when status: seasonal
+address: ""
+phone: ""
+website: ""
+tags: []
+coverImage: ./image.jpg   # optional — next to the .md file, or Keystatic puts it in src/content/[slug]/
+coverImageAlt: ""         # required when coverImage is set (enforced by schema at build time)
+priceRange: "€€"         # free | € | €€ | €€€
+featured: false
+publishedAt: 2026-04-01
+updatedAt: 2026-04-01
+---
+```
+
+### Image workflow
+
+- Listing cover images live next to their content: either in `src/content/[category]/`
+  (referenced as `coverImage: ./your-image.jpg`) or, when added via Keystatic, in
+  `src/content/[slug]/coverImage.jpg`
+- Site imagery (category cards, heroes) lives in `src/assets/images/categories/` and
+  `src/assets/images/heroes/`
+- Max 2000px wide, under 500KB before commit — Astro handles WebP/AVIF conversion at build time
+- Unprocessed originals go in `original-images/` (tracked in git, but never referenced
+  by the build — process and copy into `src/` before use)
+- Add an attribution entry to `src/data/photo-credits.json` for every stock photo
+
+### Events
+
+Events live in `src/content/events/` (also editable in Keystatic) with their own schema:
+`startDate` (required), optional `endDate`, `startTime`/`endTime` as `"HH:MM"` local time,
+`status: scheduled | cancelled | postponed`, `venue`, `price` (free text), `organiser`,
+`sourceUrl` (where the event was found), `registrationUrl` (sign-up or tickets; shown as a
+button until the event is over). `/events/` lists upcoming events by month plus the
+6 most recent past ones; a small script hides events that ended since the last build.
+Past events keep their page with a "has already taken place" banner.
+
+Events with `draft: true` are left out of the build entirely. A weekly scheduled task in the
+desktop app (Mondays 08:00, "Los Gigantes Guide: find local events") follows
+`docs/event-finder.md` to draft new events from the council's calendar (read through its
+public Google Calendar feed, since santiagodelteide.es blocks bots) and sites that allow crawling. Review the drafts,
+then set `draft: false` to publish.
+
+## Content Rot Prevention
+
+- Set `status: closed` for businesses that have shut — keeps the listing visible but clearly marked
+- Set `status: seasonal` + `seasonNote` for businesses that close off-season
+- Update `updatedAt` whenever you review a listing
+
+## Architecture Notes
+
+- `src/content.config.ts` — Zod schemas for all 5 content collections (activities, food, services, accommodation, events) plus site config; `getBaseSchema(image)` factory pattern required for `image()` helper (events has its own schema)
+- `src/layouts/BaseLayout.astro` — wraps all pages; accepts `jsonLd` prop for structured data
+- Tag pages (`/tags/[tag]/`) are `noindex` in v1 — to enable indexing: remove `noindex` from `src/pages/tags/[tag].astro` AND add to sitemap filter AND add curated `<h2>` + intro paragraph
+- Sitemap excludes `/tags/` pages — configured in `astro.config.mjs`
+
+## Cloudflare Pages Setup (manual, one-time)
+
+1. Connect your GitHub/GitLab repo in the Cloudflare Pages dashboard
+2. Build command: `npm run build`
+3. Output directory: `dist/client` (also set via `pages_build_output_dir` in `wrangler.jsonc`)
+4. Node version: 22 (set as environment variable `NODE_VERSION=22`)
+5. Enable **build failure email notifications** in Settings → Notifications
+6. Add domain `losgigantesguide.com` under Custom Domains
+
+## Contact details
+
+- `src/data/site-config.json` holds the public email and address; `phone` is optional —
+  only add it once there's a real number (no placeholders)
+- Services listings support a `whatsapp` frontmatter field: international number,
+  digits only, no `+`, no spaces (used for `wa.me` links)
+
+## Analytics
+
+Google Analytics 4 (`G-CTQXK0XF4L`) loads on every page from `src/layouts/BaseLayout.astro`,
+with no consent banner (deliberate product decision). `anonymize_ip` is set. Note this is a
+GDPR trade-off for an EU/Spain-targeted site — GA sets cookies and sends data to the US, so
+if consent ever becomes a requirement, either add a banner back or switch to cookieless
+analytics (e.g. Cloudflare Web Analytics). The CSP in `public/_headers` already allowlists
+`googletagmanager.com` and `*.google-analytics.com`.
