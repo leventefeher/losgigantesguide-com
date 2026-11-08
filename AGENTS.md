@@ -111,9 +111,10 @@ Past events keep their page with a "has already taken place" banner.
 
 Events with `draft: true` are left out of the build entirely. A weekly scheduled task in the
 desktop app (Mondays 08:00, "Los Gigantes Guide: find local events") follows
-`docs/event-finder.md` to draft new events from the council's calendar (read through its
-public Google Calendar feed, since santiagodelteide.es blocks bots) and sites that allow crawling. Review the drafts,
-then set `draft: false` to publish.
+`docs/event-finder.md` to add new events from the council's calendar (read through its
+public Google Calendar feed, since santiagodelteide.es blocks bots) and sites that allow crawling.
+New events are written with `draft: false` and go live on the next push; only events with
+an uncertain date or time (a `CHECK:` line in the body) are left as drafts for review.
 
 ## Content Rot Prevention
 

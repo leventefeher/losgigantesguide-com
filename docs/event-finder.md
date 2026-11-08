@@ -1,14 +1,15 @@
 # Weekly event finder
 
-Instructions for the scheduled task that looks for upcoming local events and drafts
-entries for review. It runs from the desktop app on Levente's machine; edit this file to
+Instructions for the scheduled task that looks for upcoming local events and writes
+entries for them. It runs from the desktop app on Levente's machine; edit this file to
 change what it does.
 
 ## Goal
 
-Find events in the next 8 weeks in or near Los Gigantes and write each one as a **draft**
-Markdown file in `src/content/events/`. A human reviews drafts, edits them and sets
-`draft: false` before they appear on the site. Never commit, push or publish anything.
+Find events in the next 8 weeks in or near Los Gigantes and write each one as a
+Markdown file in `src/content/events/` with `draft: false`, so it goes live on the next
+push. The only exception: an event with a `CHECK:` line stays `draft: true` until a human
+resolves it. Never commit, push or deploy anything.
 
 ## Area
 
@@ -80,8 +81,8 @@ have already finished.
 
 Before writing, read the frontmatter of every file in `src/content/events/`. Skip an event
 if an existing file has the same `sourceUrl`, or the same start date and an obviously
-matching title or venue. If an existing **draft** file's details have changed at the
-source (new date, cancelled), update that draft and set `updatedAt` to today.
+matching title or venue. If an existing file's details have changed at the source (new
+date, cancelled), update that file and set `updatedAt` to today.
 
 ## File format
 
@@ -104,7 +105,7 @@ organiser: "Ayuntamiento de Santiago del Teide"
 website: ""                # organiser's own page if there is one
 sourceUrl: "https://..."   # the page you found it on (required)
 registrationUrl: "https://..."  # sign-up or ticket page, only if there is one (see below)
-draft: true                # always true
+draft: false               # true only if the body has a CHECK: line
 tags: []
 publishedAt: 2026-11-05    # today
 ---
@@ -115,8 +116,8 @@ Then a short body (2 to 4 sentences, or a short list) in English.
 Rules:
 
 - **Only use facts the source states.** Leave a field out rather than guess. If the
-  year, date or time is unclear, still write the draft but add a line at the top of the
-  body starting `CHECK:` that says what's uncertain.
+  year, date or time is unclear, still write the file but add a line at the top of the
+  body starting `CHECK:` that says what's uncertain, and set `draft: true`.
 - `registrationUrl`: if the source mentions signing up, registering (inscripciones) or
   buying tickets (entradas), add the link to that page. Sources often shorten these links
   (`https://www.canaryrun.com/…/`); if so, look for the event on that platform and only use
@@ -132,6 +133,7 @@ Rules:
 ## Finish
 
 1. Run `npm run build` and fix any schema errors in the files you wrote.
-2. Reply with a short summary: drafts created (title, date, file name), drafts updated,
-   sources that failed or were skipped by robots.txt, and anything marked `CHECK:`.
+2. Reply with a short summary: events added (title, date, file name), events updated,
+   sources that failed or were skipped by robots.txt, and anything marked `CHECK:` (left
+   as a draft).
    If nothing new was found, say so in one line.
