@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520">
+  <!-- Wall, with a freshly rolled stripe of paint -->
+  <rect width="800" height="520" fill="#FDF8F0"/>
+  <path d="M0 0 H300 C310 60 290 120 305 180 C318 240 292 300 306 360 C314 400 300 425 304 440 H0 Z" fill="#7DD4E8"/>
+  <path d="M300 0 C310 60 290 120 305 180 C318 240 292 300 306 360 C314 400 300 425 304 440" fill="none" stroke="#2E8FAA" stroke-width="3" opacity="0.5"/>
+  <circle cx="322" cy="210" r="5" fill="#7DD4E8"/>
+  <circle cx="330" cy="260" r="3.5" fill="#7DD4E8"/>
+  <circle cx="318" cy="320" r="4" fill="#7DD4E8"/>
+
+  <!-- Floor -->
+  <rect y="440" width="800" height="80" fill="#F5EDD8"/>
+  <line x1="0" y1="440" x2="800" y2="440" stroke="#2A5C70" stroke-width="4"/>
+
+  <!-- Ladder -->
+  <g stroke="#2A5C70" stroke-width="5" stroke-linecap="round">
+    <line x1="660" y1="440" x2="690" y2="170"/>
+    <line x1="730" y1="440" x2="756" y2="170"/>
+    <line x1="666" y1="390" x2="735" y2="390" stroke="#E8A830" stroke-width="7"/>
+    <line x1="672" y1="330" x2="741" y2="330" stroke="#E8A830" stroke-width="7"/>
+    <line x1="679" y1="270" x2="747" y2="270" stroke="#E8A830" stroke-width="7"/>
+    <line x1="685" y1="210" x2="752" y2="210" stroke="#E8A830" stroke-width="7"/>
+  </g>
+
+  <!-- Paint tin -->
+  <g stroke="#2A5C70" stroke-width="4" stroke-linejoin="round">
+    <path d="M555 380 H625 L618 440 H562 Z" fill="#E7E2D8"/>
+    <ellipse cx="590" cy="380" rx="35" ry="9" fill="#7DD4E8"/>
+    <path d="M598 386 C600 400 604 404 604 412 C604 418 596 418 596 412 C596 404 598 400 598 386 Z" fill="#7DD4E8"/>
+    <path d="M560 382 C565 340 615 340 620 382" fill="none"/>
+  </g>
+
+  <!-- Roller: pole from the raised hand up to the wall -->
+  <line x1="405" y1="250" x2="300" y2="128" stroke="#2A5C70" stroke-width="7" stroke-linecap="round"/>
+  <path d="M300 128 L280 112 L292 96" fill="none" stroke="#2A5C70" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="236" y="70" width="80" height="34" rx="12" fill="#7DD4E8" stroke="#2A5C70" stroke-width="4" transform="rotate(-8 276 87)"/>
+
+  <!-- Legs and shoes -->
+  <g stroke="#2A5C70" stroke-width="4" stroke-linejoin="round">
+    <rect x="438" y="330" width="32" height="100" rx="6" fill="#FFFFFF"/>
+    <rect x="478" y="330" width="32" height="100" rx="6" fill="#FFFFFF"/>
+    <ellipse cx="448" cy="436" rx="26" ry="10" fill="#2A5C70"/>
+    <ellipse cx="500" cy="436" rx="26" ry="10" fill="#2A5C70"/>
+  </g>
+
+  <!-- Raised arm (behind body) -->
+  <path d="M440 250 C425 250 412 252 402 252" stroke="#C85A2A" stroke-width="26" stroke-linecap="round" fill="none"/>
+  <path d="M440 250 C425 250 412 252 402 252" stroke="#2A5C70" stroke-width="30" stroke-linecap="round" fill="none" opacity="0" />
+  <circle cx="400" cy="250" r="14" fill="#F2C29B" stroke="#2A5C70" stroke-width="4"/>
+
+  <!-- Body: shirt, then overalls bib -->
+  <path d="M428 240 C428 222 444 214 474 214 C504 214 520 222 520 240 V345 H428 Z" fill="#C85A2A" stroke="#2A5C70" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M440 262 H508 V345 H440 Z" fill="#FFFFFF" stroke="#2A5C70" stroke-width="4" stroke-linejoin="round"/>
+  <rect x="428" y="318" width="92" height="30" rx="4" fill="#FFFFFF" stroke="#2A5C70" stroke-width="4"/>
+  <line x1="444" y1="262" x2="438" y2="222" stroke="#2A5C70" stroke-width="5" stroke-linecap="round"/>
+  <line x1="504" y1="262" x2="510" y2="222" stroke="#2A5C70" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="447" cy="270" r="4" fill="#2A5C70"/>
+  <circle cx="501" cy="270" r="4" fill="#2A5C70"/>
+  <rect x="460" y="282" width="28" height="22" rx="3" fill="none" stroke="#2A5C70" stroke-width="3"/>
+  <!-- paint splashes -->
+  <circle cx="452" cy="300" r="4" fill="#7DD4E8"/>
+  <circle cx="494" cy="318" r="5" fill="#7DD4E8"/>
+  <circle cx="486" cy="380" r="4" fill="#7DD4E8"/>
+  <circle cx="452" cy="400" r="3" fill="#7DD4E8"/>
+
+  <!-- Lowered arm, hand on hip -->
+  <path d="M518 240 C540 262 540 290 522 305" stroke="#C85A2A" stroke-width="26" stroke-linecap="round" fill="none"/>
+  <circle cx="520" cy="306" r="13" fill="#F2C29B" stroke="#2A5C70" stroke-width="4"/>
+
+  <!-- Head -->
+  <rect x="462" y="196" width="22" height="22" fill="#F2C29B" stroke="#2A5C70" stroke-width="4"/>
+  <circle cx="474" cy="168" r="40" fill="#F2C29B" stroke="#2A5C70" stroke-width="4"/>
+  <circle cx="460" cy="168" r="5" fill="#2A5C70"/>
+  <circle cx="490" cy="168" r="5" fill="#2A5C70"/>
+  <circle cx="451" cy="184" r="7" fill="#E8A0A0" opacity="0.7"/>
+  <circle cx="499" cy="184" r="7" fill="#E8A0A0" opacity="0.7"/>
+  <path d="M460 188 Q475 202 490 188" fill="none" stroke="#2A5C70" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="482" cy="150" r="4" fill="#7DD4E8"/>
+
+  <!-- Cap -->
+  <path d="M436 152 C436 112 512 112 512 152 Z" fill="#C85A2A" stroke="#2A5C70" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M436 152 C420 152 404 156 400 162 C420 162 440 158 446 152 Z" fill="#C85A2A" stroke="#2A5C70" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="474" cy="118" r="5" fill="#2A5C70"/>
+</svg>
